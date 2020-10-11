@@ -15,6 +15,7 @@ jobs:
 
     - name: Run install and build
       run: |
+        set PUBLIC_URL=https://githiago-f.github.io/e-coffee-frontend/
         yarn
         yarn build
 
