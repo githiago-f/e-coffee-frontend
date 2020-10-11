@@ -7,7 +7,7 @@ import Home from 'pages/Home';
 
 export const BaseRoutes = () => {
   return (
-    <Router basename={require('./../../package.json').homepage}>
+    <Router basename={'e-coffee-frontend'}>
       <Route exact path="/" component={Home} />
     </Router>
   );

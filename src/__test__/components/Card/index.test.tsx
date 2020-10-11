@@ -15,6 +15,7 @@ describe('# Card component test', () => {
 
   it('Contains h3 with "Hello World!"', () => {
     const received = screen.getByText(/Hello World!/ig);
-    expect(received.innerHTML).toEqual('Hello World!');
+    expect(received.innerHTML).toBe('Hello World!');
+    expect(received.tagName.toLowerCase()).toBe('h2');
   });
 });
