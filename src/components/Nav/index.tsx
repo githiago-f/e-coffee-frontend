@@ -3,7 +3,7 @@ import { Icons } from 'assets';
 
 export const Nav = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-dark bg-dark">
       <div className="container">
         <a className="navbar-brand" href="/e-coffee-frontend">
           <img 
@@ -16,6 +16,7 @@ export const Nav = () => {
           />
           E-coffee
         </a>
+        
       </div>
     </nav>
   );
