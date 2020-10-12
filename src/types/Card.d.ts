@@ -1,5 +1,5 @@
 declare module '@comp/card' {
-  interface Card {
+  type Card = {
     title: string;
     subtitle?: string;
   }
