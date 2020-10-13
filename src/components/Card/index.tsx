@@ -6,17 +6,17 @@ const Card = (props: Props) => {
   const { card: { title, subtitle } } = props;
 
   return (
-    <div className="p-3">
-      <div className="row">
-        <div className="col-7">
-          <h2>{title}</h2>
-          <h4><small>{subtitle}</small></h4>
-        </div>
-        <div className="col-5">
-          <CardThumb
-            image={'https://via.placeholder.com/300x300'}
-          />
-        </div>
+    <div className="p-2">
+      <CardThumb
+        image="https://via.placeholder.com/300x300"
+      />
+      <div className="p-2">
+        <h3>
+          <small>{title}</small>
+        </h3>
+        <p>
+          {subtitle}
+        </p>
       </div>
     </div>
   );

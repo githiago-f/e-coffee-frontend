@@ -1,15 +1,10 @@
-import Card from 'components/Card';
+import { Recommended } from 'components/Recommended';
 import React from 'react';
 
 const Home = () => {
-  const card = {
-    title: 'Searching for coffee?',
-    subtitle: 'We got every types of coffee and stores near you!'
-  }; 
-
   return (
     <>
-      <Card card={card} />
+      <Recommended />
     </>
   );
 };

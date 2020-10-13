@@ -12,8 +12,4 @@ export const StyledBase = createGlobalStyle`
   body {
     font-family: 'Roboto', Arial, 'Helvetica Neue', sans-serif;
   }
-
-  p {
-    font-size: calc(1rem + .5vw);
-  }
 `;
