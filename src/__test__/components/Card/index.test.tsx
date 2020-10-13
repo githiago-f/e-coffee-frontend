@@ -13,9 +13,9 @@ describe('# Card component test', () => {
     expect(screen).toMatchSnapshot();
   });
 
-  it('Contains h2 with "Hello World!"', () => {
+  it('Contains small with "Hello World!"', () => {
     const received = screen.getByText(/Hello/g);
     expect(received.innerHTML).toBe('Hello World!');
-    expect(received.tagName.toLowerCase()).toBe('h2');
+    expect(received.tagName.toLowerCase()).toBe('small');
   });
 });

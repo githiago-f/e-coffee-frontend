@@ -9,6 +9,6 @@ export const CardThumb = styled.div<{ image: string }>`
   background-size: cover;
 
   @media only screen and (max-width: 1200px) {
-    height: calc(25vh - 10vw);
+    height: calc(35vh - 10vw);
   }
 `;
