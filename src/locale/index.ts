@@ -1,5 +1,7 @@
 import I18n from 'i18n-js';
 import defaultLang from './en.json';
+import { setLanguage } from 'store/actions';
+import store from 'store';
 const langs = ['en', 'pt-br'];
 
 class Translate {
@@ -20,6 +22,7 @@ class Translate {
       this.i18n.translations[lang] = locale;
     }
     this.i18n.locale = lang;
+    store.dispatch(setLanguage(lang));
   }
 }
 

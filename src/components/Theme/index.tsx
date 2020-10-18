@@ -3,11 +3,11 @@ import { StyledBase } from 'components/StyledBase';
 import { Nav } from 'components/Nav';
 import { Footer } from 'components/Footer';
 
-const Theme = (props: PropsWithChildren<{}>) => {
+const Theme = (props: PropsWithChildren<{lang?: string;}>) => {
   return (
     <>
       <Nav/>
-      <div className="container">
+      <div data-language={props.lang} className="container">
         {props?.children}
       </div>
       <Footer />
