@@ -23,11 +23,6 @@ export const Shops = () => {
         </div>
       </div>
       <div className="row">
-        <div className="col">
-          <button onClick={()=>{
-            Translator.selectLang('pt-br');
-          }}>Change Language</button>
-        </div>
       </div>
     </div>
   );

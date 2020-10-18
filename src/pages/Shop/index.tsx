@@ -1,5 +1,6 @@
 import Card from 'components/Card';
 import React from 'react';
+import Theme from 'components/Theme';
 
 const Shop = () => {
   const card = {
@@ -8,9 +9,9 @@ const Shop = () => {
   }; 
 
   return (
-    <>
+    <Theme>
       <Card card={card} />
-    </>
+    </Theme>
   );
 };
 
