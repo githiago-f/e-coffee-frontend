@@ -3,8 +3,11 @@ import { TLoader } from '@comp/fallbacks';
 
 export const Spinner = (props: TLoader) => {
   return (
-    props.loading &&
-    <div className="spinner-border" role="status">
+    <div 
+      className="spinner-border" 
+      hidden={props.loading} 
+      role="status"
+    >
       <span className="sr-only">
         Loading...
       </span>

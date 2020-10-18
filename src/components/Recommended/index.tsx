@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { useRecommendeds } from './hooks';
 import Card from 'components/Card';
+import { Translator } from 'locale';
 
 export const Recommended = () => {
   const { cards } = useRecommendeds();
@@ -15,7 +16,7 @@ export const Recommended = () => {
 
   return (
     <div className="content">
-      <h2>Clients also viwed:</h2>
+      <h2>{Translator.i18n.translate('recomendations.title')}</h2>
       <div className="row">
         {renderList}
       </div>
