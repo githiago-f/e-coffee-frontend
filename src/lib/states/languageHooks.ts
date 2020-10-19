@@ -28,4 +28,4 @@ export const useLanguageHooks = () => {
     lang,
     changeLanguage
   };
-}
+};
