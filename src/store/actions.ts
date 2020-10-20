@@ -1,4 +1,4 @@
-import { Action, ReduxState } from "@dataTypes/redux"
+import { Action, ReduxState } from '@dataTypes/redux';
 
 export enum Actions {
   SET_LANGUAGE = 'SET_LANGUAGE'

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icons } from 'assets';
+import Language from 'components/Language';
 
 export const Nav = () => {
   return (
@@ -16,7 +17,7 @@ export const Nav = () => {
           />
           E-coffee
         </a>
-        
+        <Language />
       </div>
     </nav>
   );

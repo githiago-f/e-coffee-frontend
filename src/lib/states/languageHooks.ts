@@ -3,17 +3,15 @@ import store from 'store';
 import { Translator } from 'locale';
 
 export const useLanguageHooks = () => {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState(Translator.currentLanguage());
 
   useEffect(() => {
     const unsubscribe = store.subscribe(() => {
       const currentLang = store.getState().language;
-
       if(currentLang !== lang) {
         setLang(currentLang);
       }
     });
-
     return () => {
       unsubscribe();
     };
