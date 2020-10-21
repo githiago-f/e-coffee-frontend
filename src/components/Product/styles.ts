@@ -8,7 +8,13 @@ export const ProductThumb = styled.div<{ image: string }>`
   background-position: center;
   background-size: cover;
 
-  @media only screen and (max-width: 1200px) {
+  @media screen and (max-width: 1200px) {
     height: calc(35vh - 10vw);
   }
+
+  @media screen and (min-width: 750px) and (max-width: 990px) {
+    height: 150px;
+  }
 `;
+
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BannerImage } from './styles';
+import { BannerCaption, BannerImage } from './styles';
 
 export const Banner = () => {
   return (
@@ -7,7 +7,11 @@ export const Banner = () => {
       <div className="col-12 col-sm-12 col-md-9">
         <BannerImage
           src={'https://via.placeholder.com/900x400?text=COVER'}
-        />
+        >
+          <BannerCaption>
+            <h3>NULL</h3>
+          </BannerCaption>
+        </BannerImage>
       </div>
     </div>
   );
