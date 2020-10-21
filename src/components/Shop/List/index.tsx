@@ -15,7 +15,7 @@ export const Shops = () => {
   return (
     <div className="content">
       <div className="row">
-        <div className="col">
+        <div className="col-12 col-sm-12 col-md-9">
           <h2>
             <small>{Translator.i18n.translate('shops.title')}</small>
           </h2>
