@@ -19,7 +19,7 @@ export const useLanguageHooks = () => {
 
   const changeLanguage = useCallback((event: ChangeEvent<HTMLSelectElement>) => {
     const selectedLang = event.target.value;
-    Translator.selectLang(selectedLang);
+    Translator.selectLangAsync(selectedLang);
   }, []);
 
   return {

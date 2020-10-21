@@ -1,12 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Card from 'components/Card';
+import Product from 'components/Product';
 
 describe('# Card component test', () => {
   const title = 'Hello World!';
 
   beforeEach(() => {
-    render(<Card card={{ title }} />);
+    render(<Product title={title} />);
   });
 
   it('should Render Card component without crashing', () => {

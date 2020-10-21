@@ -1,13 +1,13 @@
 import React from 'react';
-import { Props } from '@comp/card';
-import { CardThumb } from './styles';
+import { Props } from '@comp/product';
+import { ProductThumb } from './styles';
 
-const Card = (props: Props) => {
-  const { card: { title, subtitle } } = props;
+const Product = (props: Props) => {
+  const { title, subtitle } = props;
 
   return (
     <div className="p-2">
-      <CardThumb
+      <ProductThumb
         image="https://via.placeholder.com/300x300"
       />
       <div className="p-2">
@@ -22,4 +22,4 @@ const Card = (props: Props) => {
   );
 };
 
-export default Card;
+export default Product;

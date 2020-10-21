@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CardThumb = styled.div<{ image: string }>`
+export const ProductThumb = styled.div<{ image: string }>`
   width: 100%;
   height: 25vh;
   background-repeat: no-repeat;

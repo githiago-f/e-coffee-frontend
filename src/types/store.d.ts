@@ -14,4 +14,6 @@ declare module '@dataTypes/store' {
     quantity: number;
     coffee: Coffee;
   }
+
+  type Props = import('react').PropsWithChildren<Store>;
 }

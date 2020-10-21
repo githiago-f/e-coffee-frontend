@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Card } from '@comp/card';
+import { Product } from '@comp/product';
 
-const card = {
+const product = {
   title: 'Latte',
   subtitle: 'Store: local://storeName City: Porto Alegre'
 };
 
 export const useRecommendeds = () => {
-  const [cards] = useState([card, card, card, card] as Card[]);
+  const [products] = useState([product, product, product, product] as Product[]);
 
   return {
-    cards
+    products
   };
 };

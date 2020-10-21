@@ -1,10 +1,8 @@
-declare module '@comp/card' {
-  type Card = {
+declare module '@comp/product' {
+  type Product = {
     title: string;
     subtitle?: string;
   }
 
-  interface Props extends PropsWithChildren<Card> {
-    card: Card;
-  }
+  type Props = import('react').PropsWithChildren<Product>
 }

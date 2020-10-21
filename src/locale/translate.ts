@@ -9,7 +9,6 @@ class Translate {
 
   static readonly instance = new Translate();
   private constructor() {
-    console.log(this.currentLanguage());
     this.selectLangSync(this.currentLanguage());
   }
 
@@ -22,7 +21,7 @@ class Translate {
     return pageLocale;
   }
 
-  async selectLang(language: string) {
+  async selectLangAsync(language: string) {
     if(!languages.includes(language)){
       throw new Error('Couldn\'t find this language.');
     }

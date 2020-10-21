@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react';
 import { useRecommendeds } from './hooks';
-import Card from 'components/Card';
+import Product from 'components/Product';
 import { Translator } from 'locale';
 
 export const Recommended = () => {
-  const { cards } = useRecommendeds();
+  const { products } = useRecommendeds();
 
   const renderList = useMemo(() => {
-    return cards.map((card, index) => (
+    return products.map((product, index) => (
       <div key={index} className="col-12 col-sm-6 col-md-3">
-        <Card card={card} />
+        <Product {...product} />
       </div>
     ));
-  }, [ cards ]);
+  }, [ products ]);
 
   return (
     <div className="content">
