@@ -32,3 +32,43 @@ export const BannerCaption = styled.div`
   padding-left: 2rem;
   padding-bottom: .5rem;
 `;
+
+export const BannerArrow = styled.div<{ left?: boolean; }>`
+  position: absolute;
+  z-index: 9;
+  height: 100%;
+  cursor: pointer;
+  min-width: 50px;
+  background-image: linear-gradient(
+    ${ props =>  props.left ? 'to right' : 'to left' },
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0)
+  );
+
+  ${ props => props.left ? 'left: 0;' : 'right: 0;'}
+
+  &:hover {
+    background-image: linear-gradient(
+      ${ props =>  props.left ? 'to right' : 'to left' },
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  &:active {
+    background-image: linear-gradient(
+      ${ props =>  props.left ? 'to right' : 'to left' },
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    min-height: 30px;
+    background-color: #fff;
+    top: calc(50% - 15px);
+  }
+`;

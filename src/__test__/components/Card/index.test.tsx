@@ -18,7 +18,7 @@ describe('# Card component test', () => {
     expect(screen).toMatchSnapshot();
   });
 
-  it('got a Heading component that match RegEx(Hello)', () => {
+  it('got a small Heading component that match RegEx(Hello)', () => {
     const comp = screen.getByText(/Hello/gi);
     expect(comp.innerHTML).toBe('Hello World!');
     expect(comp.tagName).toBe('SMALL');
