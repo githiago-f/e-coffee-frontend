@@ -2,14 +2,21 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Product from 'components/Product';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Coffee } from '@dataTypes/coffee';
 
 describe('# Card component test', () => {
-  const title = 'Hello World!';
+  const product = {
+    name: 'Hello World!', 
+    price: 1.50,
+    cover_image_url: '',
+    product_id: 1,
+    coffeeType: 'latte'
+  } as Coffee;
 
   beforeEach(() => {
     render(
       <Router>
-        <Product title={title} />
+        <Product {...product} />
       </Router>
     );
   });

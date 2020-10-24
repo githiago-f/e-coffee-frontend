@@ -1,8 +1,4 @@
 declare module '@comp/product' {
-  type Product = {
-    title: string;
-    subtitle?: string;
-  }
-
+  type Product = import('@dataTypes/coffee').Coffee;
   type Props = import('react').PropsWithChildren<Product>
 }

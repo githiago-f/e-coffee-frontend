@@ -2,7 +2,7 @@ type Coffee = import('@dataTypes/coffee').Coffee
 
 declare module '@dataTypes/store' {
   type Store = {
-    id?: number;
+    store_id: number;
     name: string;
     popularity: number;
     cover_image_url?: string;

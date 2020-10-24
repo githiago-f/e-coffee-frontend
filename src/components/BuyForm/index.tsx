@@ -1,13 +1,19 @@
 import React from 'react';
+import { ProductBanner } from './styled';
 
-export const Form = () => {
+export const BuyForm = () => {
   return (
     <>
       <div className="row">
         <div className="form-group">
-          <button className="btn btn-light w-100 text-uppercase">
-            Comprar
-          </button>
+          <ProductBanner
+            src="https://via.placeholder.com/400x300"
+          />
+          <div className="pt-5">
+            <h3>
+              Expresso V
+            </h3>
+          </div>
         </div>
       </div>
     </>
