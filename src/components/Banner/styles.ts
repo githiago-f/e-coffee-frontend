@@ -1,3 +1,4 @@
+import { Icons } from 'assets';
 import styled from 'styled-components';
 
 export const BannerImage = styled.div<{ src: string; }>`
@@ -68,7 +69,10 @@ export const BannerArrow = styled.div<{ left?: boolean; }>`
     content: '';
     width: 50px;
     min-height: 30px;
-    background-color: #fff;
+    background-image: ${ props => props.left ? `url(${Icons['left-chevron']})` : `url(${Icons['right-chevron']})` };
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     top: calc(50% - 15px);
   }
 `;
