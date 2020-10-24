@@ -1,8 +1,12 @@
 {
+  "product": {
+    "title": "Ver %{title}"
+  },
   "recomendations": {
     "title": "Clientes também gostaram"
   },
   "shops": {
-    "title": "Lojas próximas de você"
+    "title": "Lojas próximas de você",
+    "buttonSeeStore": "Ver loja"
   }
 }

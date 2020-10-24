@@ -1,8 +1,12 @@
 {
+  "product": {
+    "title": "See %{title}"
+  },
   "recomendations": {
     "title": "Clients also enjoyed:"
   },
   "shops": {
-    "title": "Stores near you"
+    "title": "Stores near you",
+    "buttonSeeStore": "See store"
   }
 }

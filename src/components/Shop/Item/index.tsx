@@ -2,6 +2,7 @@ import React from 'react';
 import { Props } from '@dataTypes/store';
 import { RatingContent, ThumbImage } from './styles';
 import { Rating } from 'components/Rating';
+import { Translator } from 'locale';
 
 export const ShopItem = (props: Props) => {
   return (
@@ -24,7 +25,7 @@ export const ShopItem = (props: Props) => {
                 popularity={props.popularity}
               />
               <button type="button" className="btn btn-dark mt-2 mt-md-0">
-                Ver loja
+                {Translator.i18n.translate('shops.buttonSeeStore')}
               </button>
             </RatingContent>
           </div>

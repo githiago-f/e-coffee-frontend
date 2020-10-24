@@ -4,15 +4,15 @@ import Product from 'components/Product';
 import { Translator } from 'locale';
 
 export const Recommended = () => {
-  const { products } = useRecommendeds();
+  const { products, lang } = useRecommendeds();
 
   const renderList = useMemo(() => {
     return products.map((product, index) => (
-      <div key={index} className="col-12 col-sm-6 col-md-3">
+      <div key={index} data-language={lang} className="col-12 col-sm-6 col-md-3">
         <Product {...product} />
       </div>
     ));
-  }, [ products ]);
+  }, [ products, lang ]);
 
   return (
     <div className="content">

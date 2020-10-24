@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shops } from 'components/Shop';
 import Theme from 'components/Theme';
-import { useLanguageHooks } from 'lib/states/languageHooks';
+import { useLanguageHooks } from 'locale/languageHooks';
 import { Recommended } from 'components/Recommended';
 import { Banner } from 'components/Banner';
 

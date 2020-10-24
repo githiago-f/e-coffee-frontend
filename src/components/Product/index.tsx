@@ -2,12 +2,13 @@ import React from 'react';
 import { Props } from '@comp/product';
 import { ProductThumb } from './styles';
 import { Link } from 'components/Link';
+import { Translator } from 'locale';
 
 const Product = (props: Props) => {
   const { title, subtitle } = props;
 
   return (
-    <Link to="#">
+    <Link to="#" title={Translator.i18n.t('product.title', { title })}>
       <div className="p-2">
         <ProductThumb
           image="https://via.placeholder.com/300x300"

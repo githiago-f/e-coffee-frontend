@@ -4,13 +4,13 @@ import { useShopsHooks } from './hooks';
 import { ShopItem } from '../Item';
 
 export const Shops = () => {
-  const { shops } = useShopsHooks();
+  const { shops, lang } = useShopsHooks();
 
   const renderList = useMemo(() => {
     return shops.map((shop, index) => (
-      <ShopItem key={index} {...shop} />
+      <ShopItem key={index} data-language={lang} {...shop} />
     ));
-  }, [ shops ]);
+  }, [ shops, lang ]);
 
   return (
     <div className="content">
