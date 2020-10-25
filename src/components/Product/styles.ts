@@ -17,8 +17,9 @@ export const ProductThumb = styled.div<{ image?: string }>`
   }
 `;
 
-export const Price = styled.span`
+export const Price = styled.span<{ size?: string }>`
   color: green;
+  ${props => props.size ? `font-size: ${props.size};` : '' }
 `;
 
 
