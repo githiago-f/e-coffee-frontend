@@ -1,6 +1,10 @@
 {
   "product": {
-    "title": "See %{title}"
+    "title": "See %{title}",
+    "buyform": {
+      "buy": "Buy now {{price}}",
+      "addToCart": "Add to cart"
+    }
   },
   "recomendations": {
     "title": "Clients also enjoyed:"

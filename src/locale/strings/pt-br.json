@@ -1,6 +1,10 @@
 {
   "product": {
-    "title": "Ver %{title}"
+    "title": "Ver %{title}",
+    "buyform": {
+      "buy": "Comprar Agora {{price}}",
+      "addToCart": "Adicionar ao carrinho"
+    }
   },
   "recomendations": {
     "title": "Clientes também gostaram"

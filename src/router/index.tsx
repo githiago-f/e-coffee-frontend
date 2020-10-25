@@ -18,9 +18,9 @@ export const BaseRoutes = () => {
       <Router basename={'e-coffee-frontend'}>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/product/:productId" component={Product}/>
-          <Route path="/shop/:shopId/product/:productId" component={Product} />
-          <Route path="/shop/:shopId" component={ShopPage} />
+          <Route path="/product/:product_id" component={Product}/>
+          <Route path="/shop/:shop_id/product/:product_id" component={Product} />
+          <Route path="/shop/:shop_id" component={ShopPage} />
           <Route path="/cart" component={Cart} />
         </Switch>
       </Router>
