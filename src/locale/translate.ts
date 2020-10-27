@@ -6,7 +6,7 @@ const languages = ['en', 'pt-br'];
 const currencies = {
   'en': 'USD',
   'pt-br': 'BRL'
-};
+} as { [key in string]: string };
 
 class Translate {
   i18n = I18n;

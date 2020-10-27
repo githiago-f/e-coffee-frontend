@@ -1,16 +1,9 @@
 import React from 'react';
-import { TLoader } from '@comp/fallbacks';
 
-export const Spinner = (props: TLoader) => {
+export const Spinner = () => {
   return (
-    <div 
-      className="spinner-border" 
-      hidden={props.loading} 
-      role="status"
-    >
-      <span className="sr-only">
-        Loading...
-      </span>
+    <div className="spinner-border text-secondary" role="status">
+      <span className="sr-only"></span>
     </div>
   );
 };
