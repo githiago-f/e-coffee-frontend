@@ -4,7 +4,7 @@ import { Price, ProductThumb } from './styles';
 import { Link } from 'components/Link';
 import { Translator } from 'locale';
 
-const Product = (props: Props) => {
+const ProductCard = (props: Props) => {
   const { name, price, cover_image_url, product_id } = props;
 
   return (
@@ -26,4 +26,4 @@ const Product = (props: Props) => {
   );
 };
 
-export default Product;
+export default ProductCard;
