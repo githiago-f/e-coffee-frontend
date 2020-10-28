@@ -5,8 +5,8 @@ import { LanguageContext } from 'locale';
 const shop = {
   name: 'Lorem ipsum dolor sit amet',
   popularity: 3.2,
-  id: 1,
-  cover_image_url: 'https://via.placeholder.com/300x500?text=Lorem%20Ipsum',
+  store_id: 1,
+  cover_image_url: 'https://images.unsplash.com/photo-1485182708500-e8f1f318ba72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=450&h=300&q=72',
   stock: []
 } as Store;
 

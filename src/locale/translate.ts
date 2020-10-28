@@ -3,6 +3,10 @@ import { setLanguage } from 'store/actions';
 import store from 'store';
 
 const languages = ['en', 'pt-br'];
+const currencies = {
+  'en': 'USD',
+  'pt-br': 'BRL'
+} as { [key in string]: string };
 
 class Translate {
   i18n = I18n;
@@ -10,6 +14,14 @@ class Translate {
   static readonly instance = new Translate();
   private constructor() {
     this.selectLangSync(this.currentLanguage());
+  }
+
+  public nativeToCurrency(num: number) {
+    return num.toLocaleString(this.currentLanguage(), {
+      currency: currencies[this.currentLanguage()],
+      style: 'currency',
+      minimumFractionDigits: 2
+    });
   }
 
   currentLanguage() {

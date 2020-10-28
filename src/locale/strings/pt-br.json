@@ -1,6 +1,10 @@
 {
   "product": {
-    "title": "Ver %{title}"
+    "title": "Ver %{title}",
+    "buyform": {
+      "buy": "Comprar Agora {{price}}",
+      "addToCart": "Adicionar ao carrinho"
+    }
   },
   "recomendations": {
     "title": "Clientes também gostaram"
@@ -8,5 +12,11 @@
   "shops": {
     "title": "Lojas próximas de você",
     "buttonSeeStore": "Ver loja"
-  }
+  },
+  "banners": [
+    {
+      "title": "Seu negócio pode estar aqui",
+      "subtitle": "Tenha um espaço reservado para todos seus destaques e produtos"
+    }
+  ]
 }

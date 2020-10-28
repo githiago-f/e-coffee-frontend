@@ -4,9 +4,10 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import Home from 'pages/Home';
-import Shop from 'pages/Shop';
+import HomePage from 'pages/Home';
+import ShopPage from 'pages/Shop';
 import Cart from 'pages/Cart';
+import Product from 'pages/Product';
 import { LanguageContext, useLanguageHooks } from 'locale';
 
 export const BaseRoutes = () => {
@@ -16,8 +17,10 @@ export const BaseRoutes = () => {
     <LanguageContext.Provider value={languageHooks}>
       <Router basename={'e-coffee-frontend'}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/shop/:shopId" component={Shop} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/product/:product_id" component={Product}/>
+          <Route path="/shop/:shop_id/product/:product_id" component={Product} />
+          <Route path="/shop/:shop_id" component={ShopPage} />
           <Route path="/cart" component={Cart} />
         </Switch>
       </Router>

@@ -1,3 +1,4 @@
+import { Icons } from 'assets';
 import styled from 'styled-components';
 
 export const BannerImage = styled.div<{ src: string; }>`
@@ -22,8 +23,9 @@ export const BannerCaption = styled.div`
   right: 0;
   background-image: linear-gradient(
     to top right, 
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.3)
+    rgba(87, 59, 8, 1),
+    rgba(87, 59, 8, 0.7),
+    rgba(87, 59, 8, 0)
   );
   color: #fff;
   display: flex;
@@ -31,6 +33,14 @@ export const BannerCaption = styled.div`
   justify-content: flex-end;
   padding-left: 2rem;
   padding-bottom: .5rem;
+`;
+
+export const CaptionTitle = styled.h1.attrs({ className: 'text-uppercase' })`
+  max-width: 400px;
+  overflow: hidden;
+`;
+
+export const CaptionSubtitle = styled.h4`
 `;
 
 export const BannerArrow = styled.div<{ left?: boolean; }>`
@@ -68,7 +78,10 @@ export const BannerArrow = styled.div<{ left?: boolean; }>`
     content: '';
     width: 50px;
     min-height: 30px;
-    background-color: #fff;
+    background-image: ${ props => props.left ? `url(${Icons['left-chevron']})` : `url(${Icons['right-chevron']})` };
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     top: calc(50% - 15px);
   }
 `;

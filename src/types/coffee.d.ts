@@ -13,7 +13,7 @@ declare module '@dataTypes/coffee' {
     'lungo';
 
   type Coffee = {
-    id?: number;
+    product_id: number;
     name: string;
     coffeeType: CoffeeType;
     price: number;
