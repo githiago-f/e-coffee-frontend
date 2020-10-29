@@ -12,8 +12,9 @@ const data = {
 } as Product;
 
 export const useProductListHooks = (shop_id: number) => {
-  const [ products, setProducts ] = useState([data,data,data,data,data,data,data,data] as Product[]);
+  const [ products, setProducts ] = useState([] as Product[]);
   const [ loading, setLoading ] = useState(false);
+  const [pageLaoding, setPageLoading] = useState(true);
   const { lang } = useContext(LanguageContext);
 
   const renderList = useMemo(() => {
@@ -35,12 +36,16 @@ export const useProductListHooks = (shop_id: number) => {
   }, [ products ]);
 
   useEffect(() => {
-    console.log(shop_id);
-  }, []);
+    setTimeout(() => {
+      setProducts([data,data,data,data,data,data,data,data]);
+      setPageLoading(false);
+    }, 3000);
+  }, [shop_id]);
 
   return {
     renderList,
     loadMore,
-    loading
+    loading,
+    pageLaoding
   };
 };

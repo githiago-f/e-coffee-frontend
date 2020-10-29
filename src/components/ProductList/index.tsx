@@ -1,4 +1,7 @@
+import { LoadingContainer } from 'components/BuyForm/styled';
 import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
+import { Spinner } from 'components/Fallbacks/Spinner';
+import { Translator } from 'locale';
 import React from 'react';
 import { useProductListHooks } from './hooks';
 
@@ -7,22 +10,32 @@ interface Props {
 }
 
 export const ProductsList = (props: Props) => {
-  const { renderList, loading, loadMore } = useProductListHooks(props.shop_id);
+  const { 
+    renderList,
+    loading,
+    pageLaoding,
+    loadMore 
+  } = useProductListHooks(props.shop_id);
 
   return (
-    <div className="content">
-      <h2>Products</h2>
-      <div className="row">
-        {renderList}
-      </div>
-      <div className="row">
-        <div className="col p-3">
-          <ButtonGrow 
-            onClick={loadMore} loading={loading}>
-            See more
-          </ButtonGrow>
+    <>
+      <LoadingContainer hidden={!pageLaoding}>
+        <Spinner/>
+      </LoadingContainer>
+      <div hidden={pageLaoding} className="content">
+        <h2>{Translator.i18n.t('shops.products.title')}</h2>
+        <div className="row">
+          {renderList}
+        </div>
+        <div className="row">
+          <div className="col p-3">
+            <ButtonGrow 
+              onClick={loadMore} loading={loading}>
+              {Translator.i18n.t('shops.products.seeMore')}
+            </ButtonGrow>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

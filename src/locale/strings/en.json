@@ -12,7 +12,11 @@
   "shops": {
     "title": "Stores near you",
     "buttonSeeStore": "See store",
-    "seeMore": "See all shops"
+    "seeMore": "See all shops",
+    "products": {
+      "title": "Store Products",
+      "seeMore": "See more coffees"
+    }
   },
   "banners": [
     {
