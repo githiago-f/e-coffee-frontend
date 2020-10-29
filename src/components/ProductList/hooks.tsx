@@ -3,8 +3,16 @@ import ProductCard from 'components/ProductCard';
 import { Product } from '@comp/product';
 import { LanguageContext } from 'locale';
 
+const data = {
+  name: 'Any Cappuccino',
+  coffeeType: 'cappuccino',
+  price: 1.39,
+  product_id: 4,
+  cover_image_url: 'https://via.placeholder.com/300x300'
+} as Product;
+
 export const useProductListHooks = () => {
-  const [ products, setProducts ] = useState([] as Product[]);
+  const [ products, setProducts ] = useState([data,data,data,data,data,data,data,data] as Product[]);
   const [ loading, setLoading ] = useState(false);
   const { lang } = useContext(LanguageContext);
 
@@ -20,13 +28,7 @@ export const useProductListHooks = () => {
     setLoading(true);
     setTimeout(() => {
       setProducts(
-        ([] as Product[]).concat(...products, {
-          name: 'Any Cappuccino',
-          coffeeType: 'cappuccino',
-          price: 1.39,
-          product_id: 4,
-          cover_image_url: 'https://via.placeholder.com.br/300x300'
-        } as Product)
+        ([] as Product[]).concat(...products, ...[data,data,data,data])
       );
       setLoading(false);
     }, 3000);

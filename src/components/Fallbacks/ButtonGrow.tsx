@@ -7,7 +7,7 @@ interface Props extends PropsWithChildren<{}> {
 
 export const ButtonGrow = (props: Props) => {
   return (
-    <button onClick={props.onClick} className="btn btn-light" type="button" disabled={props.loading}>
+    <button onClick={props.onClick} className="btn btn-light w-100" type="button" disabled={props.loading}>
       <span
         hidden={!props.loading}
         className="spinner-grow spinner-grow-sm"

@@ -12,7 +12,7 @@ export const ProductsList = () => {
         {renderList}
       </div>
       <div className="row">
-        <div className="col">
+        <div className="col p-3">
           <ButtonGrow 
             onClick={loadMore} loading={loading}>
             See more
