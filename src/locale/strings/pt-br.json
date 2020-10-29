@@ -11,7 +11,12 @@
   },
   "shops": {
     "title": "Lojas próximas de você",
-    "buttonSeeStore": "Ver loja"
+    "buttonSeeStore": "Ver loja",
+    "seeMore": "Ver todas as lojas",
+    "products": {
+      "title": "Produtos da loja",
+      "seeMore": "Veja mais cafés"
+    }
   },
   "banners": [
     {

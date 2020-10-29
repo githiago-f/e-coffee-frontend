@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Translator } from 'locale';
 import { useShopsHooks } from './hooks';
 import { ShopItem } from '../Item';
+import { Link } from 'components/Link';
 
 export const Shops = () => {
   const { shops, lang } = useShopsHooks();
@@ -24,6 +25,13 @@ export const Shops = () => {
       <div className="row">
         <div className="col-12 col-sm-12 col-md-9">
           {renderList}
+          <div className="row">
+            <div className="col">
+              <Link className="btn btn-light p-3 w-100 text-uppercase" color="rgb(87,59,8)" to="#">
+                {Translator.i18n.t('shops.seeMore')}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

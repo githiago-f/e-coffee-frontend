@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useRecommendeds } from './hooks';
-import Product from 'components/Product';
+import ProductCard from 'components/ProductCard';
 import { Translator } from 'locale';
 
 export const Recommended = () => {
@@ -9,7 +9,7 @@ export const Recommended = () => {
   const renderList = useMemo(() => {
     return products.map((product, index) => (
       <div key={index} data-language={lang} className="col-12 col-sm-6 col-md-3">
-        <Product {...product} />
+        <ProductCard {...product} />
       </div>
     ));
   }, [ products, lang ]);

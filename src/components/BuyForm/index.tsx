@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, LoadingContainer, ProductBanner } from './styled';
 import { Props } from '@comp/product';
 import { Translator } from 'locale';
-import { Price } from 'components/Product/styles';
+import { Price } from 'components/ProductCard/styles';
 import { Striped } from 'components/StyledBase/styles';
 import { Spinner } from 'components/Fallbacks/Spinner';
 

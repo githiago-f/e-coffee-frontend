@@ -2,7 +2,7 @@ import { Translator } from 'locale';
 import React from 'react';
 import { BannerCaption, BannerImage, CaptionSubtitle, CaptionTitle } from './styles';
 
-export const Banner = () => {
+export const HomeBanner = () => {
 
   return (
     <div className="row my-3">

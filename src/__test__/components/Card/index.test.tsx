@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Product from 'components/Product';
+import ProductCard from 'components/ProductCard';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Coffee } from '@dataTypes/coffee';
 
-describe('# Card component test', () => {
+describe('# Product Card component test', () => {
   const product = {
     name: 'Hello World!', 
     price: 1.50,
@@ -16,7 +16,7 @@ describe('# Card component test', () => {
   beforeEach(() => {
     render(
       <Router>
-        <Product {...product} />
+        <ProductCard {...product} />
       </Router>
     );
   });
