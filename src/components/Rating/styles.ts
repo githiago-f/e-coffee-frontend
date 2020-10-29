@@ -16,4 +16,5 @@ export const RatingCoffee = styled.div<{ active?: boolean }>`
 export const RatingContainer = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;

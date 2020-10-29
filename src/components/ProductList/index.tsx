@@ -2,8 +2,12 @@ import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
 import React from 'react';
 import { useProductListHooks } from './hooks';
 
-export const ProductsList = () => {
-  const { renderList, loading, loadMore } = useProductListHooks();
+interface Props {
+  shop_id: number;
+}
+
+export const ProductsList = (props: Props) => {
+  const { renderList, loading, loadMore } = useProductListHooks(props.shop_id);
 
   return (
     <div className="content">
