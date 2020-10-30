@@ -1,17 +1,30 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Translator } from 'locale';
 import { useShopsHooks } from './hooks';
-import { ShopItem } from '../Item';
 import { Link } from 'components/Link';
+import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
 
-export const Shops = () => {
-  const { shops, lang } = useShopsHooks();
+interface Props {
+  asList?: boolean;
+}
 
-  const renderList = useMemo(() => {
-    return shops.map((shop, index) => (
-      <ShopItem key={index} data-language={lang} {...shop} />
-    ));
-  }, [ shops, lang ]);
+export const Shops = (props: Props) => {
+  const { renderList } = useShopsHooks();
+
+  const seeMoreLink = (
+    <Link 
+      className="btn btn-light p-3 w-100 text-uppercase"
+      to="/shops"
+    >
+      {Translator.i18n.t('shops.seeMore')}
+    </Link>
+  );
+
+  const loadMoreShop = (
+    <ButtonGrow loading={false} onClick={()=> {}}>
+      Load More
+    </ButtonGrow>
+  );
 
   return (
     <div className="content">
@@ -27,9 +40,10 @@ export const Shops = () => {
           {renderList}
           <div className="row">
             <div className="col">
-              <Link className="btn btn-light p-3 w-100 text-uppercase" color="rgb(87,59,8)" to="#">
-                {Translator.i18n.t('shops.seeMore')}
-              </Link>
+              {
+                props.asList ?
+                  loadMoreShop : seeMoreLink
+              }
             </div>
           </div>
         </div>

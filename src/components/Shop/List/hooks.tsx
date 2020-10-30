@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import { Store } from '@dataTypes/store';
 import { LanguageContext } from 'locale';
+import { ShopItem } from '../Item';
 
 const shop = {
   name: 'Lorem ipsum dolor sit amet',
@@ -14,8 +15,15 @@ export const useShopsHooks = () => {
   const [ shops ] = useState([ shop, shop, shop, shop ] as Store[]);
   const {lang} = useContext(LanguageContext);
 
+  const renderList = useMemo(() => {
+    return shops.map((shop, index) => (
+      <ShopItem key={index} data-language={lang} {...shop} />
+    ));
+  }, [ shops, lang ]);
+
   return {
     shops,
-    lang
+    lang,
+    renderList
   };
 };
