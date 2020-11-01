@@ -1,5 +1,5 @@
 declare module '@dataTypes/coffee' {
-  type CoffeeType = 
+  type ProductType = 
     'black' |
     'latte'|
     'with milk'|
@@ -12,10 +12,10 @@ declare module '@dataTypes/coffee' {
     'galão'|
     'lungo';
 
-  type Coffee = {
+  type Product = {
     product_id: number;
     name: string;
-    coffeeType: CoffeeType;
+    productType: ProductType;
     price: number;
     cover_image_url?: string;
   }

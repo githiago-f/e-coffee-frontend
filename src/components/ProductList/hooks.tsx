@@ -5,7 +5,7 @@ import { LanguageContext } from 'locale';
 
 const data = {
   name: 'Any Cappuccino',
-  coffeeType: 'cappuccino',
+  productType: 'cappuccino',
   price: 1.39,
   product_id: 4,
   cover_image_url: 'https://via.placeholder.com/300x300'
