@@ -10,7 +10,7 @@ describe('# Product Card component test', () => {
     price: 1.50,
     cover_image_url: '',
     product_id: 1,
-    coffeeType: 'latte'
+    productType: 'latte'
   } as Coffee;
 
   beforeEach(() => {

@@ -1,6 +1,7 @@
 {
   "product": {
     "title": "Ver %{title}",
+    "cover": "Imagem de capa %{name}",
     "buyform": {
       "buy": "Comprar Agora {{price}}",
       "addToCart": "Adicionar ao carrinho"

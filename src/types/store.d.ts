@@ -1,4 +1,4 @@
-type Coffee = import('@dataTypes/coffee').Coffee
+type Product = import('@dataTypes/coffee').Product
 
 declare module '@dataTypes/store' {
   type Store = {
@@ -12,7 +12,7 @@ declare module '@dataTypes/store' {
   type Stock = {
     store_id: number;
     quantity: number;
-    coffee: Coffee;
+    product: Product;
   }
 
   type Props = import('react').PropsWithChildren<Store>;
