@@ -17,6 +17,7 @@ const ProductCard = (props: Props) => {
         <Image
           title={Translator.i18n.t('product.cover', { name })}
           alt={`cover-${name.toLowerCase().replace(/[\s]/gi, '-')}`}
+          loading="lazy"
           src={cover_image_url}
         />
         <div className="p-2">

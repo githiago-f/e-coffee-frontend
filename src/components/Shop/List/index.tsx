@@ -27,7 +27,7 @@ export const Shops = (props: Props) => {
   );
 
   return (
-    <div className="content">
+    <div className="content py-3">
       <div className="row">
         <div className="col-12 col-sm-12 col-md-9">
           <h2>

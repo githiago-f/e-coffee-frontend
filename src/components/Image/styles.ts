@@ -9,5 +9,5 @@ export const Image = styled.img<ImageProps>`
   -o-object-fit: cover;
   object-fit: cover;
   width: ${props => props.width ? props.width : '100%'};
-  max-height: ${props => props.height ? props.height : 'auto'};
+  height: ${props => props.height ? props.height : 'auto'};
 `;
