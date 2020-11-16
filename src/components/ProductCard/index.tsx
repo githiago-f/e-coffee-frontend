@@ -6,7 +6,7 @@ import { Translator } from 'locale';
 import { Image } from 'components/Image';
 
 const ProductCard = (props: Props) => {
-  const { name, price, cover_image_url, product_id } = props;
+  const { name, price, cover_image_url, product_id } = props.product;
 
   return (
     <Link 

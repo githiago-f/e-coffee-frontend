@@ -19,4 +19,9 @@ declare module '@dataTypes/coffee' {
     price: number;
     cover_image_url?: string;
   }
+
+  type CartProduct = {
+    product_id: number;
+    count: number;
+  }
 }

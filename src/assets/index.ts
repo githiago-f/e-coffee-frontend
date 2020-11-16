@@ -3,5 +3,6 @@ export const Icons = {
   'down-rating-coffee': require('./images/down-rating-coffee.svg'),
   'up-rating-coffee': require('./images/up-rating-coffee.svg'),
   'left-chevron': require('./images/left-chevron.svg'),
-  'right-chevron': require('./images/right-chevron.svg')
+  'right-chevron': require('./images/right-chevron.svg'),
+  'cart': require('./images/cart.svg')
 };

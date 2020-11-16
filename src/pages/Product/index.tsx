@@ -21,7 +21,7 @@ const ProductPage = (props: Props) => {
         <div className="col-12 col-md-4 border-left">
           <BuyForm 
             hidden={loading}
-            {...product}
+            product={product}
           />
         </div>
       </div>

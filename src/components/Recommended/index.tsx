@@ -9,7 +9,7 @@ export const Recommended = () => {
   const renderList = useMemo(() => {
     return products.map((product, index) => (
       <div key={index} data-language={lang} className="col-12 col-sm-6 col-md-3">
-        <ProductCard {...product} />
+        <ProductCard product={product} />
       </div>
     ));
   }, [ products, lang ]);
