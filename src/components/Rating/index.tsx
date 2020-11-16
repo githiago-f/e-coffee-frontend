@@ -1,11 +1,9 @@
 import React from 'react';
 import { Props } from '@comp/rating';
-import { useRatingHooks } from './hooks';
 import { RatingCoffee, RatingContainer } from './styles';
 
 export const Rating = (props: Props) => {
-  const { rating } = useRatingHooks(props.popularity);
-
+  const { popularity: rating } = props;
   return(
     <RatingContainer>
       <RatingCoffee active={rating >= 0.5} />

@@ -16,7 +16,7 @@ describe('# Product Card component test', () => {
   beforeEach(() => {
     render(
       <Router>
-        <ProductCard {...product} />
+        <ProductCard product={product} />
       </Router>
     );
   });

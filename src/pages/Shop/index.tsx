@@ -11,21 +11,24 @@ type Props = MatchProps<{
 }>
 
 const ShopPage = (props: Props) => {
-  const { shop_id } = useShopPageHooks(props.match.params.shop_id);
+  const { 
+    shop_id, 
+    shop
+  } = useShopPageHooks(props.match.params.shop_id);
 
   return (
     <Theme>
       <div className="pt-5">
         <Image
-          src={'https://images.unsplash.com/photo-1599054228863-88e0b902a32f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'}
+          src={shop.cover_image_url}
           height="calc(20vh + 10vw)"
         />
       </div>
       <div className="py-4">
         <div className="text-center">
-          <h2 className="text-uppercase">Shop name</h2>
+          <h2 className="text-uppercase">{shop.name}</h2>
           <hr/>
-          <Rating popularity={5}/>
+          <Rating popularity={shop.popularity}/>
         </div>
       </div>
       <ProductsList shop_id={shop_id} />

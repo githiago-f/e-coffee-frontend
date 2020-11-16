@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icons } from 'assets';
 import Language from 'components/Language';
+import { NavIcon } from 'components/Cart';
 
 export const Nav = () => {
   return (
@@ -17,7 +18,10 @@ export const Nav = () => {
           />
           E-coffee
         </a>
-        <Language />
+        <div style={{display: 'inline-flex'}}>
+          <NavIcon />
+          <Language />
+        </div>
       </div>
     </nav>
   );

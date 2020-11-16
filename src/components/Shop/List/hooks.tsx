@@ -17,7 +17,11 @@ export const useShopsHooks = () => {
 
   const renderList = useMemo(() => {
     return shops.map((shop, index) => (
-      <ShopItem key={index} data-language={lang} {...shop} />
+      <ShopItem 
+        key={index} 
+        data-language={lang} 
+        {...shop} 
+      />
     ));
   }, [ shops, lang ]);
 
