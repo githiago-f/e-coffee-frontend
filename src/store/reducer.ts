@@ -1,10 +1,10 @@
 import { Action, Reducer, ReduxState } from '@dataTypes/redux';
-import { getAllItems } from 'services/cart.api';
+import { getAllCartItems } from 'services/cart.api';
 import { Actions } from './actions';
 
 const initialState: ReduxState = {
   language: 'pt-br',
-  items: getAllItems()
+  items: getAllCartItems()
 };
 
 const reducer: Reducer = (state = initialState, action: Action) => {

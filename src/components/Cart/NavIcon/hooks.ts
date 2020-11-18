@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import store from 'store';
 
-
 export const useCartNavIconHooks = () => {
   const [itemsCount, setItemsCount] = useState(0);
 
