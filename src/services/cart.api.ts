@@ -4,13 +4,13 @@ import { removeCartItem, setCartItem } from 'store/actions';
 
 const cartKey = 'ecoffee@cart';
 
-export const getAllItems = (): Record<string, CartProduct> => {
+export const getAllCartItems = (): Record<string, CartProduct> => {
   const cartItems = window.localStorage.getItem(cartKey);
   return JSON.parse(cartItems || '{}');
 };
 
 export const addToCart = (item: Product, count: number) => {
-  const items = getAllItems();
+  const items = getAllCartItems();
 
   const cartItem = {
     product_id: item.product_id,
@@ -29,7 +29,7 @@ export const addToCart = (item: Product, count: number) => {
 };
 
 export const removeFromCart = (item: Product, count: number) => {
-  const items = getAllItems();
+  const items = getAllCartItems();
 
   if(!items[item.product_id]){
     throw new Error('Item not found');

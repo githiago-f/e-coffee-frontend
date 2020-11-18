@@ -24,5 +24,8 @@
       "title": "Your business can be here",
       "subtitle": "Get a space reserved for all your products"
     }
-  ]
+  ],
+  "cart": {
+    "openCart": "Open cart"
+  }
 }

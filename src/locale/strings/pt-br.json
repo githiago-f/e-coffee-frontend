@@ -24,5 +24,8 @@
       "title": "Seu negócio pode estar aqui",
       "subtitle": "Tenha um espaço reservado para todos seus destaques e produtos"
     }
-  ]
+  ],
+  "cart": {
+    "openCart": "Abrir carrinho"
+  }
 }
