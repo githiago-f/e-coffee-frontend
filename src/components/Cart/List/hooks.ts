@@ -1,29 +1,23 @@
 import { useCallback, useEffect, useState } from 'react';
 import { getAllCartItems } from 'services/cart.api';
-import { getProductDetails } from 'services/product.api';
+import { getCartProductsDetails } from 'services/product.api';
 
 export const useCartListHooks = () => {
   const [items, setItems] = useState([] as Product[]);
   const [loading, setLoading] = useState(false);
-
-  const addToItems = useCallback((item: Product) =>{
-    const concatenedList = items.concat(item);
-    setItems(concatenedList);
-  }, [items]);
 
   const fallback = useCallback((error: Error) => {
     // threat errors
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     const cartItems = Object.values(getAllCartItems());
-    cartItems.forEach(cartItem => {
-      setLoading(true);
-      getProductDetails(cartItem.product_id)
-        .then(addToItems)
-        .catch(fallback)
-        .finally(() => setLoading(false));
-    });
+    const ids = cartItems.map(item => item.product_id);
+    getCartProductsDetails(ids)
+      .then(setItems)
+      .catch(fallback)
+      .finally(() => setLoading(false));
   }, []);
 
   return {

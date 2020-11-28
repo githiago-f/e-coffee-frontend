@@ -8,3 +8,7 @@ export const getByProductType = (type: ProductType): Promise<Product[]> => {
 export const getProductDetails = (id: number): Promise<Product> => {
   return productsService.get(`/api/coffees/${id}`);
 };
+
+export const getCartProductsDetails = (ids: number[]): Promise<Product[]> => {
+  return productsService.get(`/api/coffees?ids=${ids.join(',')}`);
+};
