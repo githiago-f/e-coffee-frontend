@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, LoadingContainer } from './styled';
+import { Button } from './styled';
 import { Props } from '@comp/product';
 import { Translator } from 'locale';
 import { Price } from 'components/ProductCard/styles';
-import { Striped } from 'components/StyledBase/styles';
+import { LoadingContainer, Striped } from 'components/StyledBase/styles';
 import { Spinner } from 'components/Fallbacks/Spinner';
 import { Image } from 'components/Image';
 import { useBuyFormHooks } from './hooks';

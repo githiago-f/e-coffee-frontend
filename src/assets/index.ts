@@ -6,3 +6,8 @@ export const Icons = {
   'right-chevron': require('./images/right-chevron.svg'),
   'cart': require('./images/cart.svg')
 };
+
+export const Errors = {
+  'none': '',
+  'empty_content': require('./images/undraw_empty_xct9.svg')
+};

@@ -27,5 +27,9 @@
   ],
   "cart": {
     "openCart": "Abrir carrinho"
+  },
+  "errors": {
+    "empty_content": "Nenhum conteúdo encontrado",
+    "none": "Algo deu errado, estamos trabalhando nisso..."
   }
 }

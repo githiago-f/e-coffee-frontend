@@ -1,13 +1,18 @@
 import React from 'react';
 import Theme from 'components/Theme';
-import { List } from 'components/Cart';
+import Cart from 'components/Cart';
 
-const Cart = () => {
+const CartPage = () => {
   return (
     <Theme>
-      <List />
+      <div className="card">
+        <div className="card-body screen-relative-h-75">
+          <h3>Suas compras</h3>
+          <Cart.List />
+        </div>
+      </div>
     </Theme>
   );
 };
 
-export default Cart;
+export default CartPage;

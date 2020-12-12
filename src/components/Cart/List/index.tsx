@@ -1,4 +1,5 @@
 import { Spinner } from 'components/Fallbacks/Spinner';
+import { LoadingContainer } from 'components/StyledBase/styles';
 import React, { useMemo } from 'react';
 import { Item } from '../Item';
 import { useCartListHooks } from './hooks';
@@ -8,9 +9,9 @@ export const List = () => {
 
   return (
     <>
-      <div hidden={!loading}>
+      <LoadingContainer height={'100%'} hidden={!loading}>
         <Spinner/>
-      </div>
+      </LoadingContainer>
       <div hidden={loading} className="col-12 col-">
         {
           useMemo(() => {

@@ -16,10 +16,3 @@ export const Button = styled.button<{ color?: string }>`
     filter: brightness(0.6);
   }
 `;
-
-export const LoadingContainer = styled.div`
-  height: 633px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
