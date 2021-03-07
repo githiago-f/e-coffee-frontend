@@ -9,7 +9,11 @@ export function NavIcon() {
   const { itemsCount } = useCartNavIconHooks();
 
   return (
-    <Link className="px-4" title={Translator.i18n.t('cart.openCart')} to="/cart">
+    <Link 
+      className="px-4"
+      title={Translator.i18n.t('cart.openCart')} 
+      to="/cart"
+    >
       <StatusWrapper>
         <CartNumber show={itemsCount > 0}>
           {itemsCount}

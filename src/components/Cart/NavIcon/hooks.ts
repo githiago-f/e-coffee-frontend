@@ -1,25 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
-import store from 'store';
+import { CartService } from 'service/cart-service';
+import { eventLayer } from 'utils/Event';
 
 export const useCartNavIconHooks = () => {
   const [itemsCount, setItemsCount] = useState(0);
 
-  const loadCounter = useCallback(() => {
-    const items = store.getState().items;
-    let count = 0;
-    Object.keys(items).forEach(itemKey => count += items[itemKey].count);
+  const loadItems = async () => { 
+    const service = await CartService();
+    const count = await service.countItems();
     setItemsCount(count);
-  }, [ ]);
+  };
 
   useEffect(() => {
-    const unsub = store.subscribe(loadCounter);
+    const change = eventLayer.on('cartItemsChange', loadItems);
 
-    loadCounter();
+    loadItems();
 
     return () => {
-      unsub();
+      eventLayer.off(change);
     };
-  }, [ itemsCount, loadCounter ]);
+  }, [ itemsCount ]);
 
   return {
     itemsCount

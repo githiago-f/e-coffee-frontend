@@ -1,13 +1,19 @@
 import React from 'react';
 import Theme from 'components/Theme';
-import { List } from 'components/Cart';
+import Cart from 'components/Cart';
+import { Translator } from 'locale';
 
-const Cart = () => {
+const CartPage = () => {
   return (
     <Theme>
-      <List />
+      <div className="card">
+        <div className="card-body screen-relative-h-75">
+          <h3>{Translator.i18n.t('cart.pageTitle')}</h3>
+          <Cart.List />
+        </div>
+      </div>
     </Theme>
   );
 };
 
-export default Cart;
+export default CartPage;

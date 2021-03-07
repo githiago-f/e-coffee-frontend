@@ -8,23 +8,8 @@ interface Props {
   asList?: boolean;
 }
 
-export const Shops = (props: Props) => {
+export const Shops = ({asList}: Props) => {
   const { renderList } = useShopsHooks();
-
-  const seeMoreLink = (
-    <Link 
-      className="btn btn-light p-3 w-100 text-uppercase"
-      to="/shops"
-    >
-      {Translator.i18n.t('shops.seeMore')}
-    </Link>
-  );
-
-  const loadMoreShop = (
-    <ButtonGrow loading={false} onClick={()=> {}}>
-      Load More
-    </ButtonGrow>
-  );
 
   return (
     <div className="content py-3">
@@ -40,10 +25,19 @@ export const Shops = (props: Props) => {
           {renderList}
           <div className="row">
             <div className="col">
-              {
-                props.asList ?
-                  loadMoreShop : seeMoreLink
-              }
+              <div hidden={asList}>
+                <ButtonGrow loading={false} onClick={()=> {}}>
+                  Load More
+                </ButtonGrow>
+              </div>
+              <div hidden={!asList}>
+                <Link 
+                  className="btn btn-light p-3 w-100 text-uppercase"
+                  to="/shops"
+                >
+                  {Translator.i18n.t('shops.seeMore')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

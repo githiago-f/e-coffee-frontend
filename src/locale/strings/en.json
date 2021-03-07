@@ -26,6 +26,7 @@
     }
   ],
   "cart": {
+    "pageTitle": "Cart items",
     "openCart": "Open cart"
   }
 }

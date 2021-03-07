@@ -3,20 +3,17 @@ import Theme from 'components/Theme';
 import { BuyForm } from 'components/BuyForm';
 import { Recommended } from 'components/Recommended';
 import { useProductHooks } from './hooks';
-import { MatchProps } from '@dataTypes/router';
+import { useRouteMatch } from 'react-router-dom';
 
-type Props = MatchProps<{
-  product_id: string;
-}>
-
-const ProductPage = (props: Props) => {
-  const { product, loading } = useProductHooks(props.match.params.product_id);
+const ProductPage = () => {
+  const match = useRouteMatch<{code: string}>();
+  const { product, loading } = useProductHooks(match.params.code);
 
   return (
     <Theme>
       <div className="row py-5">
         <div className="d-none d-sm-none d-md-block col-md-8 ">
-
+          
         </div>
         <div className="col-12 col-md-4 border-left">
           <BuyForm 

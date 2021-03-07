@@ -1,13 +1,23 @@
-import { useCallback } from 'react';
-import { addToCart } from 'services/cart.api';
+import { Product } from 'entities';
+import { ChangeEvent, useCallback, useState } from 'react';
+import { CartService } from 'service/cart-service';
 
 export const useBuyFormHooks = (product: Product) => {
+  const [quantity, setQuantity] = useState(1);
 
   const buttonAddToCart = useCallback(() => {
-    addToCart(product, 5);
-  }, [product]);
+    CartService().then(service => {
+      service.addItem(product, quantity);
+    });
+  }, [product, quantity]);
+
+  const changeQuantity = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
+    setQuantity(ev.target.valueAsNumber);
+  }, []);
 
   return {
-    buttonAddToCart
+    buttonAddToCart,
+    changeQuantity,
+    quantity
   };
 };

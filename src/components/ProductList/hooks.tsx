@@ -1,18 +1,17 @@
 import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import ProductCard from 'components/ProductCard';
-import { Product } from '@comp/product';
-import { LanguageContext } from 'locale';
+import { LanguageContext } from 'context/LanguageContext';
+import { Product } from 'entities';
 
 const data = {
   name: 'Any Cappuccino',
-  productType: 'cappuccino',
   price: 1.39,
-  product_id: 4,
-  cover_image_url: 'https://via.placeholder.com/300x300'
+  code: 'product-code',
+  thumb: 'https://via.placeholder.com/300x300'
 } as Product;
 
 export const useProductListHooks = (shop_id: number) => {
-  const [ products, setProducts ] = useState([] as Product[]);
+  const [ products, setProducts ] = useState([] as (typeof data)[]);
   const [ loading, setLoading ] = useState(false);
   const [pageLaoding, setPageLoading] = useState(true);
   const { lang } = useContext(LanguageContext);

@@ -1,16 +1,20 @@
 import React from 'react';
-import { Props } from '@comp/product';
 import { Price } from './styles';
 import { Link } from 'components/Link';
 import { Translator } from 'locale';
 import { Image } from 'components/Image';
+import { Product } from 'entities';
+
+type Props = {
+  product: Product;
+}
 
 const ProductCard = (props: Props) => {
-  const { name, price, cover_image_url, product_id } = props.product;
+  const { name, price, thumb, code } = props.product;
 
   return (
     <Link 
-      to={`/product/${product_id}`}
+      to={`/product/${code}`}
       title={Translator.i18n.t('product.title', { title: name })}
     >
       <div className="p-2">
@@ -18,7 +22,7 @@ const ProductCard = (props: Props) => {
           title={Translator.i18n.t('product.cover', { name })}
           alt={`cover-${name.toLowerCase().replace(/[\s]/gi, '-')}`}
           loading="lazy"
-          src={cover_image_url}
+          src={thumb}
         />
         <div className="p-2">
           <h3>

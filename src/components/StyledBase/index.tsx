@@ -11,5 +11,10 @@ export const StyledBase = createGlobalStyle`
 
   body {
     font-family: 'Roboto', Arial, 'Helvetica Neue', sans-serif;
+    height: 100vh;
+  }
+
+  .screen-relative-h-75 {
+    height: 75vh;
   }
 `;

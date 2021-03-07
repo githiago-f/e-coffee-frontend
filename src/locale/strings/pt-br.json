@@ -26,6 +26,7 @@
     }
   ],
   "cart": {
+    "pageTitle": "Items no carrinho",
     "openCart": "Abrir carrinho"
   }
 }

@@ -1,4 +1,5 @@
 import { Spinner } from 'components/Fallbacks/Spinner';
+import { LoadingContainer } from 'components/StyledBase/styles';
 import React, { useMemo } from 'react';
 import { Item } from '../Item';
 import { useCartListHooks } from './hooks';
@@ -6,17 +7,22 @@ import { useCartListHooks } from './hooks';
 export const List = () => {
   const { items, loading } = useCartListHooks();
 
+  const list = useMemo(() => {
+    return items.map((item, key) => (
+      <Item 
+        product={item} 
+        key={key}
+      />
+    ));
+  }, [items]);
+
   return (
     <>
-      <div hidden={!loading}>
+      <LoadingContainer height={'100%'} hidden={!loading}>
         <Spinner/>
-      </div>
-      <div hidden={loading} className="col-12 col-">
-        {
-          useMemo(() => {
-            return items.map((item, index) => <Item key={index}/>);
-          }, [items])
-        }
+      </LoadingContainer>
+      <div hidden={loading} className="row">
+        {list}
       </div>
     </>
   );

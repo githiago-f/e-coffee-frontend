@@ -1,6 +1,9 @@
 import React from 'react';
-import { Props } from '@comp/rating';
 import { RatingCoffee, RatingContainer } from './styles';
+
+type Props = {
+  popularity: number;
+}
 
 export const Rating = (props: Props) => {
   const { popularity: rating } = props;

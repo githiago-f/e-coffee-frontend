@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from 'assets';
 import Language from 'components/Language';
-import { NavIcon } from 'components/Cart';
+import Cart from 'components/Cart';
 
 export const Nav = () => {
   return (
@@ -19,7 +19,7 @@ export const Nav = () => {
           E-coffee
         </a>
         <div style={{display: 'inline-flex'}}>
-          <NavIcon />
+          <Cart.NavIcon />
           <Language />
         </div>
       </div>

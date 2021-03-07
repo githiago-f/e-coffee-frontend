@@ -8,7 +8,8 @@ import HomePage from 'pages/Home';
 import ShopPage from 'pages/Shop';
 import Cart from 'pages/Cart';
 import Product from 'pages/Product';
-import { LanguageContext, useLanguageHooks } from 'locale';
+import {LanguageContext} from 'context/LanguageContext';
+import { useLanguageHooks } from 'locale';
 import Shops from 'pages/Shops';
 
 export const BaseRoutes = () => {

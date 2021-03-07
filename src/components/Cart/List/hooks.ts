@@ -1,29 +1,30 @@
+import { Product } from 'entities';
 import { useCallback, useEffect, useState } from 'react';
-import { getAllCartItems } from 'services/cart.api';
-import { getCartProductsDetails } from 'services/product.api';
+import { CartService } from 'service/cart-service';
 
 export const useCartListHooks = () => {
   const [items, setItems] = useState([] as Product[]);
   const [loading, setLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   const fallback = useCallback((error: Error) => {
-    // TODO threat errors
+    setHasError(true);
   }, []);
 
   useEffect(() => {
     setLoading(true);
-
-    const cartItems = Object.values(getAllCartItems());
-    const ids = cartItems.map(item => item.product_id);
-
-    getCartProductsDetails(ids)
-      .then(setItems)
-      .catch(fallback)
-      .finally(() => setLoading(false));
+    CartService()
+      .then(async service => {
+        const allCartItems = await service.getAll();
+        setItems(allCartItems.map(item => item.product));
+      })
+      .finally(() => setLoading(false))
+      .catch(fallback);
   }, [fallback]);
 
   return {
     loading,
-    items
+    items,
+    hasError
   };
 };

@@ -1,6 +1,6 @@
-import { LoadingContainer } from 'components/BuyForm/styled';
 import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
 import { Spinner } from 'components/Fallbacks/Spinner';
+import { LoadingContainer } from 'components/StyledBase/styles';
 import { Translator } from 'locale';
 import React from 'react';
 import { useProductListHooks } from './hooks';
