@@ -11,7 +11,7 @@ export const CartNumber = styled.div<{ show: boolean }>`
   text-align: center;
   vertical-align: middle;
   padding-top: .40rem;
-  top: -0.6rem;
+  top: -0.5rem;
   right: -0.6rem;
   display: ${ props => props.show ? 'block' : 'none' };
   min-height: 1.3rem;

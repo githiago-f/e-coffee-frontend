@@ -2,25 +2,22 @@ import React from 'react';
 import Theme from 'components/Theme';
 import { ProductsList } from 'components/ProductList';
 import { Rating } from 'components/Rating';
-import { MatchProps } from '@dataTypes/router';
 import { Image } from 'components/Image';
 import { useShopPageHooks } from './hooks';
+import { useRouteMatch } from 'react-router-dom';
 
-type Props = MatchProps<{
-  shop_id: string;
-}>
-
-const ShopPage = (props: Props) => {
+const ShopPage = () => {
+  const match = useRouteMatch<{shop_id: string}>();
   const { 
     shop_id, 
     shop
-  } = useShopPageHooks(props.match.params.shop_id);
+  } = useShopPageHooks(match.params.shop_id);
 
   return (
     <Theme>
       <div className="pt-5">
         <Image
-          src={shop.cover_image_url}
+          src={shop.thumb}
           height="calc(20vh + 10vw)"
         />
       </div>
@@ -28,7 +25,7 @@ const ShopPage = (props: Props) => {
         <div className="text-center">
           <h2 className="text-uppercase">{shop.name}</h2>
           <hr/>
-          <Rating popularity={shop.popularity}/>
+          <Rating popularity={shop.rating}/>
         </div>
       </div>
       <ProductsList shop_id={shop_id} />

@@ -3,14 +3,11 @@ import Theme from 'components/Theme';
 import { BuyForm } from 'components/BuyForm';
 import { Recommended } from 'components/Recommended';
 import { useProductHooks } from './hooks';
-import { MatchProps } from '@dataTypes/router';
+import { useRouteMatch } from 'react-router-dom';
 
-type Props = MatchProps<{
-  product_id: string;
-}>
-
-const ProductPage = (props: Props) => {
-  const { product, loading } = useProductHooks(props.match.params.product_id);
+const ProductPage = () => {
+  const match = useRouteMatch<{code: string}>();
+  const { product, loading } = useProductHooks(match.params.code);
 
   return (
     <Theme>

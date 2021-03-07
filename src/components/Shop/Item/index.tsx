@@ -1,9 +1,15 @@
 import React from 'react';
-import { Props } from '@dataTypes/store';
 import { RatingContent, ThumbImage } from './styles';
 import { Rating } from 'components/Rating';
 import { Translator } from 'locale';
 import { Link } from 'components/Link';
+
+type Props = {
+  store_id: number;
+  cover_image_url: string;
+  name: string;
+  popularity: number;
+}
 
 export const ShopItem = (props: Props) => {
   return (

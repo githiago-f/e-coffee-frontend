@@ -1,11 +1,10 @@
 import { Errors } from 'assets';
 import { Translator } from 'locale';
 import React from 'react';
-import { ErrorTypes } from 'utils/err/errortypes';
 
-type Props = Partial<{
-  type: ErrorTypes;
-}>
+type Props = {
+  type?: keyof typeof Errors;
+}
 
 export const Message = ({ type }: Props) => {
   return (

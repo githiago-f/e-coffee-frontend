@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseRoutes } from 'router';
+import { BaseRoutes } from 'App/router';
 
 const App = () => {
   return (

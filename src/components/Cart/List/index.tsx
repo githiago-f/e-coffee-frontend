@@ -7,17 +7,22 @@ import { useCartListHooks } from './hooks';
 export const List = () => {
   const { items, loading } = useCartListHooks();
 
+  const list = useMemo(() => {
+    return items.map((item, key) => (
+      <Item 
+        product={item} 
+        key={key}
+      />
+    ));
+  }, [items]);
+
   return (
     <>
       <LoadingContainer height={'100%'} hidden={!loading}>
         <Spinner/>
       </LoadingContainer>
-      <div hidden={loading} className="col-12 col-">
-        {
-          useMemo(() => {
-            return items.map((item, index) => <Item key={index}/>);
-          }, [items])
-        }
+      <div hidden={loading} className="row">
+        {list}
       </div>
     </>
   );

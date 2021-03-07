@@ -1,6 +1,5 @@
 import I18n from 'i18n-js';
-import { setLanguage } from 'store/actions';
-import store from 'store';
+import { eventLayer } from 'utils/Event';
 
 const languages = ['en', 'pt-br'];
 const currencies = {
@@ -43,7 +42,7 @@ class Translate {
     }
     this.i18n.locale = language;
     this.setStoredLanguage = language;
-    store.dispatch(setLanguage(language));
+    eventLayer.emit('languageChange', language);
   }
 
   selectLangSync(language: string) {
