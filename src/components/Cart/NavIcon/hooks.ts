@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CartService } from 'service/cart-service';
 import { eventLayer } from 'utils/Event';
 
