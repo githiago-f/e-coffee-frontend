@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export const useShopPageHooks = (shopId: string) => {
   const shop_id = parseInt(shopId);
-  const [ loading, setLoading ] = useState(true);
+  const [ loading ] = useState(true);
   const [shop, setShop] = useState({} as Shop);
 
   useEffect(() => {
