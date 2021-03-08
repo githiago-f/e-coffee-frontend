@@ -6,8 +6,8 @@ declare module 'entities' {
     price: number;
   }
 
-  type Shop = {
-    id: number;
+  type Store = {
+    id?: number;
     thumb: string;
     rating: number;
     name: string;
