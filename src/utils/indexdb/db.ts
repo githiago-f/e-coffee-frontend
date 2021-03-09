@@ -1,5 +1,4 @@
 import { createCart } from './createCart';
-import { createStore } from './createStore';
 
 type mode = 'readonly' | 'readwrite';
 
@@ -9,14 +8,13 @@ export async function IndexedDB() {
   const database: IDBDatabase = await new Promise((resolve, reject) => {
     let db: IDBDatabase;
     openRequest.onsuccess = () => {
-      resolve(openRequest.result);
       db = openRequest.result;
+      resolve(openRequest.result);
     };
 
     openRequest.onupgradeneeded = function() {
       db = this.result;
       createCart(db);
-      createStore(db);
     };
 
     openRequest.onerror = () => reject(openRequest.error);

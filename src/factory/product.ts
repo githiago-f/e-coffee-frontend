@@ -1,12 +1,12 @@
+import { Defaults } from 'assets';
 import { Product } from 'entities';
 
-type BuildProductFn = (code: string, name: string, price: number, thumb: string) => Product;
+type FactoryFn = (code: string, name: string, price: number, thumb?: string) => Product;
 
-export const buildProduct:BuildProductFn = (code, name, price, thumb) => {
-  return {
+export const productFactory:FactoryFn = (code, name, price, thumb) => 
+  ({
     code,
     name,
     price,
-    thumb
-  };
-};
+    thumb: thumb || Defaults.product_image
+  });

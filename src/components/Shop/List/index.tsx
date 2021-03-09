@@ -1,6 +1,6 @@
 import React from 'react';
 import { Translator } from 'locale';
-import { useShopsHooks } from './hooks';
+import { useStoreHooks } from './hooks';
 import { Link } from 'components/Link';
 import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
 
@@ -8,8 +8,8 @@ interface Props {
   asList?: boolean;
 }
 
-export const Shops = ({asList}: Props) => {
-  const { renderList } = useShopsHooks();
+export const StoreList = ({asList}: Props) => {
+  const { renderList } = useStoreHooks();
 
   return (
     <div className="content py-3">

@@ -1,5 +1,5 @@
 import { CartItem, Product } from 'entities';
-import { buildCartItem } from 'factory/cart-item';
+import { cartItemFactory } from 'factory/cart-item';
 import { eventLayer } from 'utils/Event';
 import { IndexedDB } from 'utils/indexdb/db';
 
@@ -8,7 +8,7 @@ export const CartService = async () => {
   const store = idb.useStore('cart', 'readwrite');
 
   const addItem = (product: Product, quantity = 1) => {
-    store.put(buildCartItem(product, quantity))
+    store.put(cartItemFactory(product, quantity))
       .addEventListener('success', function() {
         eventLayer.emit('cartItemsChange', product);
       });
