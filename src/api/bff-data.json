@@ -1,0 +1,101 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "rating": 3.4,
+      "name": "Store A"
+    },
+    {
+      "id": 2,
+      "rating": 0,
+      "name": "Store B"
+    },
+    {
+      "id": 3,
+      "rating": 4.2,
+      "name": "Store C"
+    },
+    {
+      "id": 4,
+      "rating": 2.5,
+      "name": "Store D"
+    },
+    {
+      "id": 5,
+      "rating": 2.1,
+      "name": "Store E"
+    },
+    {
+      "id": 6,
+      "rating": 1,
+      "name": "Store F"
+    },
+    {
+      "id": 7,
+      "rating": 5,
+      "name": "Store G"
+    }
+  ],
+  "products": [
+    {
+      "name": "Cappuccino",
+      "code": "code-0",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Irlandês",
+      "code": "code-1",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Mocha",
+      "code": "code-2",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Espresso",
+      "code": "code-3",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Americano",
+      "code": "code-4",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Frappuccino",
+      "code": "code-5",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Caramel Macchiato",
+      "code": "code-6",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Turco",
+      "code": "code-7",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Cubano",
+      "code": "code-8",
+      "price": 7.39,
+      "discount": 0.4
+    },
+    {
+      "name": "Latte",
+      "code": "code-9",
+      "price": 7.39,
+      "discount": 0.4
+    }
+  ]
+}

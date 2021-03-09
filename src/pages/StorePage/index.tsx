@@ -6,7 +6,7 @@ import { Image } from 'components/Image';
 import { useShopPageHooks } from './hooks';
 import { useRouteMatch } from 'react-router-dom';
 
-const ShopPage = () => {
+const StorePage = () => {
   const match = useRouteMatch<{shop_id: string}>();
   const { 
     shop_id, 
@@ -33,4 +33,4 @@ const ShopPage = () => {
   );
 };
 
-export default ShopPage;
+export default StorePage;

@@ -10,4 +10,5 @@ export const Image = styled.img<ImageProps>`
   object-fit: cover;
   width: ${props => props.width ? props.width : '100%'};
   height: ${props => props.height ? props.height : 'auto'};
+  padding: 5px;
 `;

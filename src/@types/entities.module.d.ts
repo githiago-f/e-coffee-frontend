@@ -4,10 +4,11 @@ declare module 'entities' {
     thumb: string;
     code: string;
     price: number;
+    discount: number;
   }
 
-  type Shop = {
-    id: number;
+  type Store = {
+    id?: number;
     thumb: string;
     rating: number;
     name: string;

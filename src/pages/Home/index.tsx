@@ -1,14 +1,16 @@
 import React from 'react';
-import { Shops } from 'components/Shop';
+import { StoreList } from 'components/StoreList';
 import Theme from 'components/Theme';
 import { Recommended } from 'components/Recommended';
 import { HomeBanner } from 'components/HomeBanner';
+import { useHomeHooks } from './hooks';
 
 const HomePage = () => {
+  const {stores} = useHomeHooks();
   return (
     <Theme>
       <HomeBanner/>
-      <Shops/>
+      <StoreList stores={stores} />
       <Recommended/>
     </Theme>
   );

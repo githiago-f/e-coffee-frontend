@@ -1,3 +1,5 @@
+import { createCart } from './createCart';
+
 type mode = 'readonly' | 'readwrite';
 
 export async function IndexedDB() {
@@ -6,16 +8,13 @@ export async function IndexedDB() {
   const database: IDBDatabase = await new Promise((resolve, reject) => {
     let db: IDBDatabase;
     openRequest.onsuccess = () => {
-      resolve(openRequest.result);
       db = openRequest.result;
+      resolve(openRequest.result);
     };
 
     openRequest.onupgradeneeded = function() {
       db = this.result;
-      const cart = db.createObjectStore('cart', {
-        keyPath: 'code'
-      });
-      cart.createIndex('product', 'product', { unique:true });
+      createCart(db);
     };
 
     openRequest.onerror = () => reject(openRequest.error);
