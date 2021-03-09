@@ -4,6 +4,7 @@ declare module 'entities' {
     thumb: string;
     code: string;
     price: number;
+    discount: number;
   }
 
   type Store = {

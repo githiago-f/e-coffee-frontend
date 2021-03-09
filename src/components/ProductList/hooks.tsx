@@ -2,16 +2,10 @@ import React, {useCallback, useContext, useEffect, useMemo, useState} from 'reac
 import ProductCard from 'components/ProductCard';
 import { LanguageContext } from 'context/LanguageContext';
 import { Product } from 'entities';
-
-const data = {
-  name: 'Any Cappuccino',
-  price: 1.39,
-  code: 'product-code',
-  thumb: 'https://via.placeholder.com/300x300'
-} as Product;
+import { productApi } from 'api/product.api';
 
 export const useProductListHooks = (shop_id: number) => {
-  const [ products, setProducts ] = useState([] as (typeof data)[]);
+  const [ products, setProducts ] = useState([] as Product[]);
   const [ loading, setLoading ] = useState(false);
   const [pageLaoding, setPageLoading] = useState(true);
   const { lang } = useContext(LanguageContext);
@@ -26,19 +20,19 @@ export const useProductListHooks = (shop_id: number) => {
 
   const loadMore = useCallback(() => {
     setLoading(true);
-    setTimeout(() => {
-      setProducts(
-        ([] as Product[]).concat(...products, ...[data,data,data,data])
-      );
-      setLoading(false);
-    }, 3000);
-  }, [ products ]);
+    const api = productApi();
+    api.getPaged()
+      .then((newProducts) => setProducts([...products, ...newProducts]))
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, [products]);
 
   useEffect(() => {
-    setTimeout(() => {
-      setProducts([data,data,data,data,data,data,data,data]);
-      setPageLoading(false);
-    }, 3000);
+    const api = productApi();
+    api.getPaged()
+      .then(setProducts)
+      .catch(console.error)
+      .finally(() => setPageLoading(false));
   }, [shop_id]);
 
   return {

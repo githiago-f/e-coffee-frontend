@@ -1,12 +1,16 @@
 import React from 'react';
 import Theme from 'components/Theme';
-import { StoreList } from 'components/Shop';
+import { StoreList } from 'components/StoreList';
+import { useStoresHooks } from './hooks';
 
 const Stores = () => {
-  
+  const {stores} = useStoresHooks();
   return (
     <Theme>
-      <StoreList asList />
+      <StoreList 
+        asList 
+        stores={stores}
+      />
     </Theme>
   );
 };

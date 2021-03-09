@@ -1,5 +1,11 @@
+import { Store } from 'entities';
+import { useState } from 'react';
 
-export const useStoreHooks = () => {
+export const useStoresHooks = () => {
   // fetch stores
-  
+  const [stores] = useState([] as Store[]);
+
+  return {
+    stores
+  };
 };

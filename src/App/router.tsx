@@ -23,8 +23,8 @@ export const BaseRoutes = () => {
       <Router basename={'e-coffee-frontend'}>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/product/:product_id" component={Product}/>
-          <Route path="/shop/:shop_id/product/:product_id" component={Product} />
+          <Route path="/product/:code" component={Product}/>
+          <Route path="/shop/:shop_id/product/:code" component={Product} />
           <Route path="/shop/:shop_id" component={StorePage} />
           <Route path="/shops" component={Stores} />
           <Route path="/cart" component={Cart} />

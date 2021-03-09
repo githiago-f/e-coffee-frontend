@@ -1,18 +1,22 @@
+import { storeApi } from 'api/store.api';
 import { Store } from 'entities';
-import { storeFactory } from 'factory/store-factory';
 import { useEffect, useState } from 'react';
 
 export const useShopPageHooks = (shopId: string) => {
-  const shop_id = parseInt(shopId);
-  const [ loading ] = useState(true);
+  const [ loading, setLoading ] = useState(true);
   const [shop, setShop] = useState({} as Store);
 
   useEffect(() => {
-    setShop(storeFactory('Starbucks', 3.4));
-  }, []);
+    const api = storeApi();
+    api.getById(parseInt(shopId))
+      .then(async (s) => s ? s : {} as Store)
+      .then(setShop)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, [shopId]);
 
   return {
-    shop_id,
+    shop_id: parseInt(shopId),
     shop,
     loading
   };

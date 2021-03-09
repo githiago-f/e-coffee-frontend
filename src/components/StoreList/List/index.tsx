@@ -1,15 +1,17 @@
 import React from 'react';
 import { Translator } from 'locale';
-import { useStoreHooks } from './hooks';
+import { useStoreListHooks } from './hooks';
 import { Link } from 'components/Link';
 import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
+import { Store } from 'entities';
 
 interface Props {
   asList?: boolean;
+  stores: Store[];
 }
 
-export const StoreList = ({asList}: Props) => {
-  const { renderList } = useStoreHooks();
+export const StoreList = ({asList, stores}: Props) => {
+  const { renderList } = useStoreListHooks(stores);
 
   return (
     <div className="content py-3">
