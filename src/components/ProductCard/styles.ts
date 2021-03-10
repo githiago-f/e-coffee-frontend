@@ -5,5 +5,3 @@ export const Price = styled.span<{ size?: string, bold?: string }>`
   ${props => props.size ? `font-size: ${props.size};` : '' }
   ${props => props.bold ? `font-weight: ${props.bold}`: '' }
 `;
-
-

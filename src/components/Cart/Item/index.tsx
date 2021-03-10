@@ -1,18 +1,30 @@
 import { Image } from 'components/Image';
-import { Product } from 'entities';
+import { Price } from 'components/ProductCard/styles';
+import { LanguageContext } from 'context/LanguageContext';
+import { CartItem } from 'entities';
 import { Translator } from 'locale';
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 
-export const Item = ({product}: {product: Product}) => {
+export const Item = ({item}: {item: CartItem}) => {
+  const { product, quantity } = item;
+  const {lang} = useContext(LanguageContext);
+
+  const price = useMemo(() => {
+    const {price: localPrice, discount} = product;
+    const equivalent = localPrice - (localPrice * discount);
+    console.log(lang);
+    return Translator.nativeToCurrency(equivalent * quantity);
+  }, [lang, product, quantity]);
+
   return (
-    <div className="col-12 col-md-3">
+    <div className="col-12 col-md-3 mt-1">
       <div className="card">
         <Image className="card-img-top" src={product.thumb} alt={product.name}/>
         <div className="card-body">
           <h6>
-            <small>{product.name}</small>
+            <small>{product.name} &times; {quantity}</small>
           </h6>
-          <span>{Translator.nativeToCurrency(product.price || 0.00)}</span>
+          <Price size={'1.0rem'} bold="700">{price}</Price>
         </div>
       </div>
     </div>

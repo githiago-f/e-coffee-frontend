@@ -1,4 +1,5 @@
 import { Spinner } from 'components/Fallbacks/Spinner';
+import { Price } from 'components/ProductCard/styles';
 import { LoadingContainer } from 'components/StyledBase/styles';
 import React, { useMemo } from 'react';
 import { Item } from '../Item';
@@ -9,11 +10,18 @@ export const List = () => {
 
   const list = useMemo(() => {
     return items.map((item, key) => (
-      <Item 
-        product={item} 
+      <Item
+        item={item}
         key={key}
       />
     ));
+  }, [items]);
+
+  const total = useMemo(() => {
+    return items.map(val => val.product.price * val.quantity)
+      .reduce((val, curVal) => {
+        return curVal + val;
+      }, 0);
   }, [items]);
 
   return (
@@ -23,6 +31,9 @@ export const List = () => {
       </LoadingContainer>
       <div hidden={loading} className="row">
         {list}
+      </div>
+      <div>
+        <h4>Total: <Price>{total}</Price></h4>
       </div>
     </>
   );

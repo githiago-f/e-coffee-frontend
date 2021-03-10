@@ -15,6 +15,6 @@ export const StyledBase = createGlobalStyle`
   }
 
   .screen-relative-h-75 {
-    height: 75vh;
+    min-height: 75vh;
   }
 `;
