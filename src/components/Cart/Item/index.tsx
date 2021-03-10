@@ -3,7 +3,7 @@ import { Price } from 'components/ProductCard/styles';
 import { LanguageContext } from 'context/LanguageContext';
 import { CartItem } from 'entities';
 import { Translator } from 'locale';
-import React, { useContext, useMemo } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 
 export const Item = ({item}: {item: CartItem}) => {
   const { product, quantity } = item;
@@ -16,9 +16,13 @@ export const Item = ({item}: {item: CartItem}) => {
     return Translator.nativeToCurrency(equivalent * quantity);
   }, [lang, product, quantity]);
 
+  const openItem = useCallback(() => {
+    window.location.pathname = '/e-coffee-frontend/product/' + product.code;
+  }, [product]);
+
   return (
     <div className="col-12 col-md-3 mt-1">
-      <div className="card">
+      <div onClick={openItem} className="card clicable">
         <Image className="card-img-top" src={product.thumb} alt={product.name}/>
         <div className="card-body">
           <h6>

@@ -5,12 +5,18 @@ import { useEffect, useState } from 'react';
 export const useProductHooks = (code: string) => {
   const [ product, setProduct ] = useState({} as Product);
   const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState('');
 
   useEffect(() => {
     const api = productApi();
-    console.log(code);
     api.getByCode(code)
-      .then(async i => i || {} as Product)
+      .then(async i => {
+        if(!i) {
+          setError('Not found');
+          return {} as Product;
+        }
+        return i;
+      } )
       .then(setProduct)
       .catch(console.error)
       .finally(()=>setLoading(false));
@@ -18,6 +24,7 @@ export const useProductHooks = (code: string) => {
 
   return {
     product,
-    loading
+    loading,
+    error
   };
 };

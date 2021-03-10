@@ -1,8 +1,8 @@
 import { CartItem } from 'entities';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';
 
-export const useCartListHooks = () => {
+export const useCartHooks = () => {
   const [items, setItems] = useState([] as CartItem[]);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -22,9 +22,21 @@ export const useCartListHooks = () => {
       .catch(fallback);
   }, [fallback]);
 
+  const total = useMemo(() => {
+    return items
+      .map(val => {
+        const priceDiscount = val.product.price * val.product.discount;
+        return (val.product.price - priceDiscount) * val.quantity;
+      })
+      .reduce((val, curVal) => {
+        return curVal + val;
+      }, 0);
+  }, [items]);
+
   return {
     loading,
     items,
-    hasError
+    hasError,
+    total
   };
 };

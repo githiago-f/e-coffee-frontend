@@ -15,6 +15,12 @@ export const StyledBase = createGlobalStyle`
   }
 
   .screen-relative-h-75 {
+    max-height: 75vh;
     min-height: 75vh;
+    overflow: auto;
+  }
+
+  .clicable {
+    cursor: pointer;
   }
 `;
