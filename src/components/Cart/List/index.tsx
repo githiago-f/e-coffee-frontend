@@ -24,7 +24,7 @@ export const List = ({items, loading}: Props) => {
       <LoadingContainer height={'100%'} hidden={!loading}>
         <Spinner/>
       </LoadingContainer>
-      <div hidden={loading} className="row">
+      <div hidden={loading}>
         {list}
       </div>
     </>

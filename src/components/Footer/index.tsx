@@ -5,19 +5,14 @@ export const Footer = () => {
   return (
     <StyledFooter>
       <div className="container">
-        <div>
-          <ul className="nav">
-            <li className="item"></li>
-          </ul>
-        </div>
-        <div className="text-center">
+        <div className="text-center p-5">
           <small>
               Icons made by {' '}
-            <a href="https://smashicons.com/" title="Smashicons">Smashicons</a>{', '}
-            <a href="https://www.flaticon.com/free-icon/coffee_1569602" title="Kiranshastry">Kiranshastry</a>{', '}
-            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>{' and '}
-            <a href="https://www.flaticon.com/authors/google" title="Google">Google</a>{' '} 
-              from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+            <a href="https://smashicons.com/" className="link-dark" title="Smashicons">Smashicons</a>{', '}
+            <a href="https://www.flaticon.com/free-icon/coffee_1569602" className="link-dark" title="Kiranshastry">Kiranshastry</a>{', '}
+            <a href="https://www.flaticon.com/authors/freepik" className="link-dark" title="Freepik">Freepik</a>{' and '}
+            <a href="https://www.flaticon.com/authors/google" className="link-dark" title="Google">Google</a>{' '} 
+              from <a href="https://www.flaticon.com/" className="link-dark" title="Flaticon"> www.flaticon.com</a>
           </small>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Theme from 'components/Theme';
 import Cart from 'components/Cart';
 import { Translator } from 'locale';
-import { Price } from 'components/ProductCard/styles';
+import { Price } from 'components/Price';
 import { useCartHooks } from './hooks';
 import { Button } from 'components/BuyForm/styled';
 
@@ -22,7 +22,7 @@ const CartPage = () => {
       </div>
       <div className="p-3 row">
         <div className="col-12 col-sm-6 text-right d-flex align-items-md-end justify-content-end">
-          <h4>Total: <Price>{Translator.nativeToCurrency(total)}</Price></h4>
+          <h4>Total: <Price price={total} /></h4>
         </div>
         <div className="col-12 col-sm-6 text-right">
           <Button

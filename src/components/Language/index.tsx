@@ -2,12 +2,11 @@ import { LanguageContext } from 'context/LanguageContext';
 import React, { useContext } from 'react';
 
 const Language = () => {
-  const { changeLanguage, lang } = useContext(LanguageContext);
+  const { changeLanguage, lang, options } = useContext(LanguageContext);
 
   return (
     <select onChange={changeLanguage} className="form-select ml-3" value={lang}> 
-      <option value="en">en</option>
-      <option value="pt-br">pt-BR</option>
+      {options.map(i => <option key={i.value} value={i.value}>{i.label}</option>)}
     </select>
   );
 };

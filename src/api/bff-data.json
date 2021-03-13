@@ -97,5 +97,17 @@
       "price": 7.39,
       "discount": 0.4
     }
-  ]
+  ],
+  "config": {
+    "languages": [
+      {
+        "label": "English",
+        "value": "en"
+      },
+      {
+        "label": "Português",
+        "value": "pt-br"
+      }
+    ]
+  }
 }

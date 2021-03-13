@@ -3,7 +3,8 @@
     "title": "Ver %{title}",
     "cover": "Imagem de capa %{name}",
     "buyform": {
-      "addToCart": "Adicionar ao carrinho ({{price}})"
+      "addToCart": "Adicionar ao carrinho ({{price}})",
+      "quantity": "Quantidade"
     }
   },
   "recomendations": {

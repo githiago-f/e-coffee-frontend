@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Striped = styled.s`
   font-size: 1rem;
-  color: gray;
+  color: #4D4D51;
   line-height: 1.5rem;
 `;
 
