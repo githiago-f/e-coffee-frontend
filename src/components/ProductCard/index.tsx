@@ -1,5 +1,5 @@
 import React from 'react';
-import { Price } from './styles';
+import { Price } from 'components/Price';
 import { Link } from 'components/Link';
 import { Translator } from 'locale';
 import { Image } from 'components/Image';
@@ -29,7 +29,9 @@ const ProductCard = (props: Props) => {
             <small>{name}</small>
           </h3>
           <div className="row">
-            <Price>{Translator.nativeToCurrency(price)}</Price>
+            <Price
+              price={price}
+            />
           </div>
         </div>
       </div>

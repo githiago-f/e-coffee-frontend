@@ -3,7 +3,8 @@
     "title": "See %{title}",
     "cover": "%{name}'s cover image",
     "buyform": {
-      "addToCart": "Add to cart ({{price}})"
+      "addToCart": "Add to cart ({{price}})",
+      "quantity": "Quantity"
     }
   },
   "recomendations": {

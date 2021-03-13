@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './styled';
 import { Translator } from 'locale';
-import { Price } from 'components/ProductCard/styles';
+import { Price } from 'components/Price';
 import { LoadingContainer, Striped } from 'components/StyledBase/styles';
 import { Spinner } from 'components/Fallbacks/Spinner';
 import { Image } from 'components/Image';
@@ -23,6 +23,10 @@ export const BuyForm = (props: Props) => {
     currentPrice
   } = useBuyFormHooks(props.product);
 
+  const currenciedPrice = Translator.i18n.t('product.buyform.addToCart', {
+    price: Translator.nativeToCurrency(currentPrice)
+  });
+
   return (
     <div className="row">
       <LoadingContainer hidden={!props.hidden}>
@@ -36,37 +40,38 @@ export const BuyForm = (props: Props) => {
           src={thumb}
         />
         <div className="pt-5">
-          <h3 className="text-black-50">{name}</h3>
+          <h3>{name}</h3>
         </div>
         <div className="row">
           <div className="col pb-5 text-right">
             <Striped>{Translator.nativeToCurrency(props.product.price||0.00)}</Striped>
             <div className="row">
               <div className="col-4">
-                <input 
-                  min="1"
-                  type="number"
-                  className="border-aqua form-control h-100"
-                  value={quantity}
-                  onChange={changeQuantity}
-                />
+                <div className="form-group">
+                  <label htmlFor="quantity">
+                    {Translator.i18n.t('product.buyform.quantity')}:
+                  </label>
+                  <input 
+                    min="1"
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    className="border-aqua form-control h-100"
+                    value={quantity}
+                    onChange={changeQuantity}
+                  />
+                </div>
               </div>
               <div className="col-8">
                 &times;
-                <Price bold="700" size="2.3rem"> {currentPrice} </Price>
+                <Price bold="700" size="2.3rem" price={currentPrice}/>
               </div>
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <Button onClick={buttonAddToCart}>
-              {
-                Translator.i18n.t('product.buyform.addToCart', {
-                  price: currentPrice
-                })
-              }
-            </Button>
+            <Button onClick={buttonAddToCart}> {currenciedPrice} </Button>
           </div>
         </div>
       </div>

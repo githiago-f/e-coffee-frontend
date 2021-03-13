@@ -1,12 +1,9 @@
 import { Product } from 'entities';
-import { ChangeEvent, useCallback, useContext, useMemo, useState } from 'react';
+import { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';
-import { Translator } from 'locale';
-import { LanguageContext } from 'context/LanguageContext';
 
 export const useBuyFormHooks = (product: Product) => {
   const [quantity, setQuantity] = useState(1);
-  const {lang} = useContext(LanguageContext);
 
   const buttonAddToCart = useCallback(() => {
     CartService().then(service => {
@@ -25,9 +22,8 @@ export const useBuyFormHooks = (product: Product) => {
   const currentPrice = useMemo(() => {
     const {price, discount} = product;
     const equivalent = price - (price * discount);
-    console.log(lang);
-    return Translator.nativeToCurrency(equivalent * quantity);
-  }, [product, quantity, lang]);
+    return equivalent * quantity;
+  }, [product, quantity]);
 
   return {
     buttonAddToCart,

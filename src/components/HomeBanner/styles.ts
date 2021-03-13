@@ -40,7 +40,7 @@ export const CaptionTitle = styled.h1.attrs({ className: 'text-uppercase' })`
   overflow: hidden;
 `;
 
-export const CaptionSubtitle = styled.h4`
+export const CaptionSubtitle = styled.h2`
 `;
 
 export const BannerArrow = styled.div<{ left?: boolean; }>`
