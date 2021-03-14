@@ -3,20 +3,16 @@ import { Link } from 'components/Link';
 import { Price } from 'components/Price';
 import { CartItem } from 'entities';
 import { Translator } from 'locale';
-import React, { useCallback, useMemo } from 'react';
+import React from 'react';
+import { useCartItemHooks } from './hooks';
 
 export const Item = ({item}: {item: CartItem}) => {
-  const { product, quantity } = item;
-
-  const price = useMemo(() => {
-    const {price: localPrice, discount} = product;
-    const equivalent = localPrice - (localPrice * discount);
-    return equivalent * quantity;
-  }, [ product, quantity]);
-
-  const clickLink = useCallback(() => {
-    document.getElementById('link_' + product.code)?.click();
-  }, [product]);
+  const { 
+    clickLink, 
+    product, 
+    price,
+    changeItem,
+    quantity } = useCartItemHooks(item);
 
   return (
     <div className="row">
@@ -42,8 +38,8 @@ export const Item = ({item}: {item: CartItem}) => {
               type="number" 
               id={`quantity_${product.code}`}
               name={`quantity_${product.code}`}
-              onChange={()=>{}}
-              className="form-control pl-3" 
+              onChange={changeItem}
+              className={`form-control pl-3 ${quantity !== item.quantity && 'is-valid'}`}
               min="0" 
               value={quantity}
             />

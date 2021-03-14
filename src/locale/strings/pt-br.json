@@ -27,6 +27,8 @@
   ],
   "cart": {
     "pageTitle": "Items no carrinho",
-    "openCart": "Abrir carrinho"
+    "openCart": "Abrir carrinho",
+    "completePurchase": "Completar compra",
+    "aboutButton": "Clique aqui para continuar o check-out"
   }
 }

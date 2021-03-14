@@ -7,14 +7,20 @@ export const CartService = async () => {
   const idb = await IndexedDB();
   const store = idb.useStore('cart', 'readwrite');
 
-  const addItem = (product: Product, quantity = 1) => {
+  const self = {} as {
+    alterItem: (product: Product, quantity: number) => void;
+    getAll: () => Promise<CartItem[]>;
+    countItems: () => Promise<number>;
+  };
+
+  self.alterItem = (product, quantity = 1) => {
     store.put(cartItemFactory(product, quantity))
       .addEventListener('success', function() {
         eventLayer.emit('cartItemsChange', product);
       });
   };
 
-  const getAll = async (): Promise<CartItem[]> => {
+  self.getAll = async () => {
     return new Promise((resolve, reject) => {
       const all = store.getAll();
       all.onsuccess = function() {
@@ -26,7 +32,7 @@ export const CartService = async () => {
     });
   };
 
-  const countItems = (): Promise<number> => {
+  self.countItems = (): Promise<number> => {
     return new Promise((resolve, reject) => {
       const count = store.count();
       count.onsuccess = function() {
@@ -38,9 +44,5 @@ export const CartService = async () => {
     });
   };
 
-  return {
-    addItem,
-    countItems,
-    getAll
-  };
+  return self;
 };

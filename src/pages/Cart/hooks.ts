@@ -1,11 +1,12 @@
 import { CartItem } from 'entities';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { CartService } from 'service/cart-service';
 
 export const useCartHooks = () => {
   const [items, setItems] = useState([] as CartItem[]);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [total, setTotal] = useState(0);
 
   const fallback = useCallback((error: Error) => {
     setHasError(true);
@@ -22,21 +23,27 @@ export const useCartHooks = () => {
       .catch(fallback);
   }, [fallback]);
 
-  const total = useMemo(() => {
-    return items
+  useEffect(() => {
+    const actualTotal = items
       .map(val => {
-        const priceDiscount = val.product.price * val.product.discount;
-        return (val.product.price - priceDiscount) * val.quantity;
+        const discountPrice = val.product.price * val.product.discount;
+        return (val.product.price - discountPrice) * val.quantity;
       })
       .reduce((val, curVal) => {
         return curVal + val;
       }, 0);
+    setTotal(actualTotal);
   }, [items]);
+
+  const changeItems = useCallback((newItems: CartItem[]) => {
+    setItems(newItems);
+  }, []);
 
   return {
     loading,
     items,
     hasError,
-    total
+    total,
+    changeItems
   };
 };

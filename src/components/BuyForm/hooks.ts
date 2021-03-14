@@ -7,7 +7,7 @@ export const useBuyFormHooks = (product: Product) => {
 
   const buttonAddToCart = useCallback(() => {
     CartService().then(service => {
-      service.addItem(product, quantity);
+      service.alterItem(product, quantity);
     });
   }, [product, quantity]);
 
