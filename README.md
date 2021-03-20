@@ -9,7 +9,9 @@ Este projeto é um estudo sobre acessibilidade que integra funcionalidades bási
 #### todo 
 > ADICIONAR IMAGEM DE UML DE NAVEGAÇÃO DO SITE.
 
-### Utilitários no código
+-------------------------------------------------
+
+## Utilitários no código
 
 Ao contribuir com este repositório, você deve adicionar aqui quaisquer utilitários interessantes do código, por exemplo:
 
@@ -19,7 +21,7 @@ Ao contribuir com este repositório, você deve adicionar aqui quaisquer utilit�
 
 Todas as interfaces que demonstram algum preço devem utilizar este componente para serem atualizadas conforme a unidade monetária da linguagem selecionada pelo usuário.
 
----
+-------------------------------------------------
 
 ### Traduções
 
@@ -62,6 +64,7 @@ function App() {
 
 Este objeto contém uma instância da interface [i18n](http://i18njs.com/), e possibilita a modificação e adição de novos idiomas à aplicação...
 
+-------------------------------------------------
 
 
 
