@@ -57,7 +57,7 @@ Para adicionar a tradução ao seu código, basta utilizar o objeto `Translator`
 ```TypeScript
 function App() {
   return(
-    <h3>Translator.i18n.t('recomendations.title')</h3>
+    <h3>{Translator.i18n.t('recomendations.title')}</h3>
   )
 }
 ```
