@@ -2,8 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## About
+## Sobre
 
-This application is a small coffee store hub, that is planned to contain
-a rich and simple UI.
+Este projeto é um estudo sobre acessibilidade que integra funcionalidades básicas de uma loja online. O objetivo deste estudo não é entregar uma loja online, mas sim um site extremamente acessível, onde o controle de qualdiade é baseado na entrega de componentes e de estruturas simplificadas e que expressam um modelo básico para uma loja online.
+
+### todo 
+> ADICIONAR IMAGEM DE UML DE NAVEGAÇÃO DO SITE.
 
