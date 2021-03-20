@@ -13,4 +13,10 @@ Este projeto é um estudo sobre acessibilidade que integra funcionalidades bási
 
 Ao contribuir com este repositório, você deve adicionar aqui quaisquer utilitários interessantes do código, por exemplo:
 
-Componente Price: `components/Price`, todas as interfaces que demonstram algum preço devem utilizar este componente para serem atualizadas conforme a unidade monetária da linguagem selecionada pelo usuário.
+### Componente Price 
+
+> path `components/Price` 
+
+Todas as interfaces que demonstram algum preço devem utilizar este componente para serem atualizadas conforme a unidade monetária da linguagem selecionada pelo usuário.
+
+---
