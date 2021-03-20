@@ -1,19 +1,20 @@
 import { CartItem } from 'entities';
 import { cartItemFactory } from 'factory/cart-item';
-import { ChangeEvent, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';
+import { PriceService } from 'service/price-service';
 
 type inputChange = (ev: ChangeEvent<HTMLInputElement>) => void;
 
 export const useCartItemHooks = (item: CartItem) => {
   const [quantity, setQuantity] = useState(item.quantity);
   const cartService = CartService();
+  const priceService = PriceService();
 
   const price = useMemo(() => {
-    const {price: localPrice, discount} = item.product;
-    const equivalent = localPrice - (localPrice * discount);
-    return equivalent * quantity;
-  }, [ item.product, quantity ]);
+    const cartItem = cartItemFactory(item.product, quantity);
+    return priceService.productPriceWithDiscount(cartItem);
+  }, [ item, quantity, priceService ]);
 
   const clickLink = useCallback(() => {
     document.getElementById('link_' + item.product.code)?.click();
@@ -27,7 +28,7 @@ export const useCartItemHooks = (item: CartItem) => {
     if(quantity !== item.quantity) {
       cartService.alterItem(item.product, quantity);
     }
-  }, [quantity, item]);
+  }, [quantity, item, cartService]);
 
   return {
     clickLink,
