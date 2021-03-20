@@ -7,7 +7,10 @@ import { useCartHooks } from './hooks';
 import { Button } from 'components/BuyForm/styled';
 
 const CartPage = () => {
-  const { items, loading, total } = useCartHooks();
+  const { 
+    items,
+    loading,
+    total } = useCartHooks();
 
   return (
     <Theme>
@@ -26,9 +29,9 @@ const CartPage = () => {
         </div>
         <div className="col-12 col-sm-6 text-right">
           <Button
-            title="Concluir compra"
-            about="Click here to proceed to check-out"
-          >Concluir compra</Button>
+            title={Translator.i18n.t('cart.completePurchase')}
+            about={Translator.i18n.t('cart.aboutButton')}
+          >{Translator.i18n.t('cart.completePurchase')}</Button>
         </div>
       </div>
     </Theme>

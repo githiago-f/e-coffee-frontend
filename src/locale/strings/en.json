@@ -8,7 +8,7 @@
     }
   },
   "recomendations": {
-    "title": "Clients also enjoyed:"
+    "title": "Clients also enjoyed"
   },
   "shops": {
     "title": "Stores near you",
@@ -27,6 +27,8 @@
   ],
   "cart": {
     "pageTitle": "Cart items",
-    "openCart": "Open cart"
+    "openCart": "Open cart",
+    "completePurchase": "Complete purchase",
+    "aboutButton": "Click here to proceed to check-out"
   }
 }
