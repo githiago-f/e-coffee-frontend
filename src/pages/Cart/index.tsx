@@ -5,14 +5,12 @@ import { Translator } from 'locale';
 import { Price } from 'components/Price';
 import { useCartHooks } from './hooks';
 import { Button } from 'components/BuyForm/styled';
-import { CartContext } from 'context/TotalContext';
 
 const CartPage = () => {
   const { 
-    items, 
-    loading, 
-    total, 
-    changeItems } = useCartHooks();
+    items,
+    loading,
+    total } = useCartHooks();
 
   return (
     <Theme>
@@ -27,9 +25,7 @@ const CartPage = () => {
       </div>
       <div className="p-3 row">
         <div className="col-12 col-sm-6 text-right d-flex align-items-md-end justify-content-end">
-          <CartContext.Provider value={{items, changeItems}}>
-            <h4>Total: <Price price={total} /></h4>
-          </CartContext.Provider>
+          <h4>Total: <Price price={total} /></h4>
         </div>
         <div className="col-12 col-sm-6 text-right">
           <Button

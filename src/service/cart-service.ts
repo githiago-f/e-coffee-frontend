@@ -3,9 +3,11 @@ import { cartItemFactory } from 'factory/cart-item';
 import { eventLayer } from 'utils/Event';
 import { IndexedDB } from 'utils/indexdb/db';
 
-export const CartService = async () => {
-  const idb = await IndexedDB();
-  const store = idb.useStore('cart', 'readwrite');
+export const CartService = () => {
+  const getStore = async () => {
+    const idb = await IndexedDB();
+    return idb.useStore('cart', 'readwrite');
+  };
 
   const self = {} as {
     alterItem: (product: Product, quantity: number) => void;
@@ -13,7 +15,8 @@ export const CartService = async () => {
     countItems: () => Promise<number>;
   };
 
-  self.alterItem = (product, quantity = 1) => {
+  self.alterItem = async (product, quantity = 1) => {
+    const store = await getStore();
     store.put(cartItemFactory(product, quantity))
       .addEventListener('success', function() {
         eventLayer.emit('cartItemsChange', product);
@@ -21,6 +24,7 @@ export const CartService = async () => {
   };
 
   self.getAll = async () => {
+    const store = await getStore();
     return new Promise((resolve, reject) => {
       const all = store.getAll();
       all.onsuccess = function() {
@@ -32,7 +36,8 @@ export const CartService = async () => {
     });
   };
 
-  self.countItems = (): Promise<number> => {
+  self.countItems = async (): Promise<number> => {
+    const store = await getStore();
     return new Promise((resolve, reject) => {
       const count = store.count();
       count.onsuccess = function() {

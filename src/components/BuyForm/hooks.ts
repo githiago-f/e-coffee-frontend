@@ -4,11 +4,10 @@ import { CartService } from 'service/cart-service';
 
 export const useBuyFormHooks = (product: Product) => {
   const [quantity, setQuantity] = useState(1);
+  const cartService = CartService();
 
   const buttonAddToCart = useCallback(() => {
-    CartService().then(service => {
-      service.alterItem(product, quantity);
-    });
+    cartService.alterItem(product, quantity);
   }, [product, quantity]);
 
   const changeQuantity = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
