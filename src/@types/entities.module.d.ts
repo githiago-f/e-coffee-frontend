@@ -13,10 +13,4 @@ declare module 'entities' {
     rating: number;
     name: string;
   }
-
-  type CartItem = {
-    code?: string;
-    quantity: number;
-    product: Product;
-  }
 }

@@ -4,11 +4,12 @@ import { StoreList } from 'components/StoreList';
 import { useStoresHooks } from './hooks';
 
 const Stores = () => {
-  const {stores} = useStoresHooks();
+  const {stores, onLoadMore, total} = useStoresHooks();
   return (
     <Theme>
       <StoreList 
-        asList 
+        total={total}
+        onLoadMore={onLoadMore}
         stores={stores}
       />
     </Theme>

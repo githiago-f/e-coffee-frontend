@@ -1,4 +1,4 @@
-import { CartItem } from 'entities';
+import { CartItem } from 'value-object';
 
 export type TPriceService = {
   productPriceWithDiscount(item: CartItem): number;

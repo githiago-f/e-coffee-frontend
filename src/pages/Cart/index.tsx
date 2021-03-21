@@ -14,13 +14,17 @@ const CartPage = () => {
 
   return (
     <Theme>
-      <div className="card">
-        <div className="card-body screen-relative-h-75">
-          <h3>{Translator.i18n.t('cart.pageTitle')}</h3>
-          <Cart.List 
-            items={items}
-            loading={loading}
-          />
+      <div className="row">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-body screen-relative-h-75">
+              <h3>{Translator.i18n.t('cart.pageTitle')}</h3>
+              <Cart.List 
+                items={items}
+                loading={loading}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div className="p-3 row">

@@ -10,7 +10,10 @@ const HomePage = () => {
   return (
     <Theme>
       <HomeBanner/>
-      <StoreList stores={stores} />
+      <StoreList 
+        asList 
+        stores={stores} 
+      />
       <Recommended/>
     </Theme>
   );

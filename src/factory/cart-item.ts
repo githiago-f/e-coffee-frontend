@@ -1,4 +1,5 @@
-import { CartItem, Product } from 'entities';
+import { Product } from 'entities';
+import { CartItem } from 'value-object';
 
 type buildFn = (product: Product, quantity: number) => CartItem;
 
