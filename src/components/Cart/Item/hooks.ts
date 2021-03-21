@@ -1,4 +1,4 @@
-import { CartItem } from 'entities';
+import { CartItem } from 'value-object';
 import { cartItemFactory } from 'factory/cart-item';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';

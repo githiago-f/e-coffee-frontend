@@ -1,7 +1,7 @@
 import { Image } from 'components/Image';
 import { Link } from 'components/Link';
 import { Price } from 'components/Price';
-import { CartItem } from 'entities';
+import { CartItem } from 'value-object';
 import { Translator } from 'locale';
 import React from 'react';
 import { useCartItemHooks } from './hooks';
@@ -20,6 +20,8 @@ export const Item = ({item}: {item: CartItem}) => {
         to={`product/${product.code}`}
         title={product.name}
         className="hide"
+        tabIndex={-1}
+        hidden
         id={'link_' + product.code}
       ></Link>
       <div onClick={clickLink} className="col-12 col-sm-3 col-md-2 clicable">

@@ -3,4 +3,10 @@ declare module 'value-object' {
     value: string;
     label: string;
   }
+
+  type CartItem = {
+    code?: string;
+    quantity: number;
+    product: Product;
+  }
 }

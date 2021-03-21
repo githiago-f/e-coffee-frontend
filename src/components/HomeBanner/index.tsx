@@ -6,7 +6,7 @@ export const HomeBanner = () => {
 
   return (
     <div className="row my-3">
-      <div className="col-12 col-sm-12 col-md-9">
+      <div className="col-12 col-sm-12 col-md-12">
         <BannerImage
           src={'https://images.unsplash.com/photo-1599054228863-88e0b902a32f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80'}
         >

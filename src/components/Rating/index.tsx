@@ -8,7 +8,7 @@ type Props = {
 export const Rating = (props: Props) => {
   const { popularity: rating } = props;
   return(
-    <RatingContainer>
+    <RatingContainer title={`Total rating ${rating}`}>
       <RatingCoffee active={rating >= 0.5} />
       <RatingCoffee active={rating >= 1.5} />
       <RatingCoffee active={rating >= 2.5} />

@@ -1,7 +1,8 @@
-import { CartItem, Product } from 'entities';
+import { CartItem } from 'value-object';
 import { cartItemFactory } from 'factory/cart-item';
 import { eventLayer } from 'utils/Event';
 import { IndexedDB } from 'utils/indexdb/db';
+import { Product } from 'entities';
 
 export const CartService = () => {
   const getStore = async () => {

@@ -17,10 +17,10 @@ export const StoreItem = (props: Props) => {
         title={Translator.i18n.translate('shops.buttonSeeStore')}
       >
         <div className="row">
-          <div className="col-12 col-sm-12 col-md-3">
+          <div className="col-12 col-sm-12 col-md-4">
             <ThumbImage src={props.store.thumb} />
           </div>
-          <div className="col-12 col-sm-12 col-md-9">
+          <div className="col-12 col-sm-12 col-md-8">
             <div className="row h-100">
               <div className="col-12 col-sm-12 col-md-8">
                 <h3>

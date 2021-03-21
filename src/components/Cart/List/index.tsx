@@ -1,6 +1,6 @@
 import { Spinner } from 'components/Fallbacks/Spinner';
 import { LoadingContainer } from 'components/StyledBase/styles';
-import { CartItem } from 'entities';
+import { CartItem } from 'value-object';
 import React, { useMemo } from 'react';
 import { Item } from '../Item';
 

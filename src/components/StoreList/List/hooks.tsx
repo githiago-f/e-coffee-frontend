@@ -8,11 +8,12 @@ export const useStoreListHooks = (stores: Store[]) => {
 
   const renderList = useMemo(() => {
     return stores.map((store, index) => (
-      <StoreItem 
-        key={index} 
-        data-language={lang} 
-        store={store}
-      />
+      <div key={index} className="col-12 col-sm-12 col-md-6">
+        <StoreItem 
+          data-language={lang} 
+          store={store}
+        />
+      </div>
     ));
   }, [ stores, lang ]);
 

@@ -4,6 +4,8 @@ import { storeFactory } from 'factory/store-factory';
 type StoreApi = {
   getMostRated(): Promise<Store[]>;
   getById(id: number): Promise<Store | undefined>;
+  getAll(): Promise<Store[]>;
+  getTotal(): Promise<number>;
 }
 
 type JsonStore = {
@@ -22,13 +24,19 @@ export const storeApi = () => {
 
   self.getMostRated = async () => (await data).stores
     .sort(orderByRating)
-    .slice(0, 4)
+    .slice(0, 8)
     .map(toStore);
 
   self.getById = async (id: number) => (await data).stores
     .filter(i => i.id === id)
     .map(toStore)
     .shift();
+
+  self.getAll = async () => (await data).stores
+    .map(toStore);
+
+  self.getTotal = async () => (await data).stores
+    .length;
 
   return self;
 };

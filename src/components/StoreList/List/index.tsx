@@ -8,9 +8,11 @@ import { Store } from 'entities';
 interface Props {
   asList?: boolean;
   stores: Store[];
+  onLoadMore?: () => void;
+  total?: number;
 }
 
-export const StoreList = ({asList, stores}: Props) => {
+export const StoreList = ({asList, stores, total, onLoadMore}: Props) => {
   const { renderList } = useStoreListHooks(stores);
 
   return (
@@ -23,24 +25,22 @@ export const StoreList = ({asList, stores}: Props) => {
         </div>
       </div>
       <div className="row">
-        <div className="col-12 col-sm-12 col-md-9">
-          {renderList}
-          <div className="row">
-            <div className="col">
-              <div hidden={asList}>
-                <ButtonGrow loading={false} onClick={()=> {}}>
-                  Load More
-                </ButtonGrow>
-              </div>
-              <div hidden={!asList}>
-                <Link 
-                  className="btn btn-light p-3 w-100 text-uppercase"
-                  to="/shops"
-                >
-                  {Translator.i18n.t('shops.seeMore')}
-                </Link>
-              </div>
-            </div>
+        {renderList}
+      </div>
+      <div className="row">
+        <div className="col">
+          <div hidden={asList || stores.length === total}>
+            <ButtonGrow loading={false} onClick={onLoadMore || (()=>{})}>
+              {Translator.i18n.t('shops.loadMore')}
+            </ButtonGrow>
+          </div>
+          <div hidden={!asList}>
+            <Link 
+              className="btn btn-light p-3 w-100 text-uppercase font-weight-bold"
+              to="/shops"
+            >
+              {Translator.i18n.t('shops.seeMore')}
+            </Link>
           </div>
         </div>
       </div>

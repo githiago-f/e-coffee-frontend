@@ -7,9 +7,17 @@ export const ProductBuilder = () => {
       return v.toString(16);
     });
   }
+  
   const withPriceAndDiscount = (price: number, discount: number) => {
-    return productFactory(uuidv4(), 'Product Name', price, discount, 'https://via.placeholder.com/300x300?text=+');
+    return productFactory(
+      uuidv4(), 
+      'Product Name', 
+      price, 
+      discount, 
+      'https://via.placeholder.com/300x300?text=+'
+    );
   };
+
   return {
     withPriceAndDiscount
   };
