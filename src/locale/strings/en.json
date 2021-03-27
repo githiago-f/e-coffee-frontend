@@ -30,6 +30,11 @@
     "pageTitle": "Cart items",
     "openCart": "Open cart",
     "completePurchase": "Complete purchase",
-    "aboutButton": "Click here to proceed to check-out"
+    "aboutButton": "Click here to proceed to check-out",
+    "deleteModal": {
+      "title": "Do you want to remove this item?",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
   }
 }

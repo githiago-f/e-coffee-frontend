@@ -9,6 +9,7 @@ type inputChange = (ev: ChangeEvent<HTMLInputElement>) => void;
 
 export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
   const [quantity, setQuantity] = useState(item.quantity);
+  const [show, setShow] = useState(false);
   const cartService = CartService();
   const priceService = PriceService();
 
@@ -21,25 +22,36 @@ export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
     document.getElementById('link_' + item.product.code)?.click();
   }, [item.product.code]);
 
-  const callDelete = useCallback(() => {
+  const confirmDelete = useCallback(() => {
+    cartService.deleteItem(item.code)
+      .catch(console.error)
+      .finally(() => setShow(false));
+  }, [item, cartService]);
 
+  const cancelDelete = useCallback(() => {
+    setShow(false);
+    setQuantity(1);
+  }, []);
+
+  const callDelete = useCallback(() => {
+    setShow(true);
   }, []);
 
   const changeItem: inputChange = useCallback(ev => {
     const value = ev.target.valueAsNumber;
-    if(isNaN(value) || value === 0) {
-      setQuantity(1);
+    if(isNaN(value)) {
+      setQuantity(0);
+    }
+    if(value === 0) {
+      callDelete();
     }
     setQuantity(value);
-  }, []);
-
-
-  const confirmDelete = useCallback(() => {
-    
-  }, []);
+  }, [callDelete]);
 
   useEffect(() => {
-    cartService.alterItem(item.product, quantity);
+    if(quantity !== 0) {
+      cartService.alterItem(item.product, quantity);
+    }
     const totalCartPrice = cartService.changeItemPrice(
       originalItems, {
         code: item.code,
@@ -47,7 +59,7 @@ export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
       }
     );
     eventLayer.emit('totalChange', totalCartPrice);
-  }, [quantity, item, cartService, originalItems]);
+  }, [quantity, callDelete, item, cartService, originalItems]);
 
   return {
     clickLink,
@@ -56,6 +68,8 @@ export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
     quantity,
     changeItem,
     callDelete,
-    confirmDelete
+    show,
+    confirmDelete,
+    cancelDelete
   };
 };

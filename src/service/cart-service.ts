@@ -58,10 +58,25 @@ export const CartService = () => {
     return priceService.totalCartPrice(items);
   };
 
+  const deleteItem = async (code: string) => {
+    const store = await getStore();
+    const del = store.delete(code);
+    return new Promise((resolve, reject) => {
+      del.onsuccess = function() {
+        resolve(del.result);
+        eventLayer.emit('cartItemsChange');
+      };
+      del.onerror = function() {
+        reject(del.error);
+      };
+    });
+  };
+
   return {
     alterItem,
     countItems,
     getAll,
-    changeItemPrice
+    changeItemPrice,
+    deleteItem
   };
 };
