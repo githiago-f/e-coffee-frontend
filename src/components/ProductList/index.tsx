@@ -7,6 +7,7 @@ import { useProductListHooks } from './hooks';
 
 interface Props {
   shop_id: number;
+  hidden?: boolean;
 }
 
 export const ProductsList = (props: Props) => {
@@ -18,7 +19,7 @@ export const ProductsList = (props: Props) => {
   } = useProductListHooks(props.shop_id);
 
   return (
-    <>
+    <div hidden={props.hidden}>
       <LoadingContainer hidden={!pageLaoding}>
         <Spinner/>
       </LoadingContainer>
@@ -36,6 +37,6 @@ export const ProductsList = (props: Props) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

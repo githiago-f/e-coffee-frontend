@@ -5,7 +5,7 @@ declare module 'value-object' {
   }
 
   type CartItem = {
-    code?: string;
+    code: string;
     quantity: number;
     product: Product;
   }

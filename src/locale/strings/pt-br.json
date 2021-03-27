@@ -30,6 +30,15 @@
     "pageTitle": "Items no carrinho",
     "openCart": "Abrir carrinho",
     "completePurchase": "Completar compra",
-    "aboutButton": "Clique aqui para continuar o check-out"
+    "aboutButton": "Clique aqui para continuar o check-out",
+    "deleteModal": {
+      "title": "Deseja remover este item?",
+      "cancel": "Cancelar",
+      "confirm": "Confirmar"
+    }
+  },
+  "errors": {
+    "empty_content": "Não há nada para ver aqui",
+    "none": ""
   }
 }

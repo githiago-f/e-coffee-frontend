@@ -5,14 +5,23 @@ import { CartItem } from 'value-object';
 import { Translator } from 'locale';
 import React from 'react';
 import { useCartItemHooks } from './hooks';
+import { ConfirmModal } from 'components/Modal';
 
-export const Item = ({item}: {item: CartItem}) => {
+type ItemProps = {
+  item: CartItem, 
+  originalItems: CartItem[]
+}
+
+export const Item = ({item, originalItems}: ItemProps) => {
   const { 
     clickLink, 
     product, 
     price,
     changeItem,
-    quantity } = useCartItemHooks(item);
+    quantity,
+    confirmDelete,
+    cancelDelete,
+    show } = useCartItemHooks(item, originalItems);
 
   return (
     <div className="row">
@@ -24,6 +33,11 @@ export const Item = ({item}: {item: CartItem}) => {
         hidden
         id={'link_' + product.code}
       ></Link>
+      <ConfirmModal 
+        show={show}
+        onCancel={cancelDelete} 
+        onConfirm={confirmDelete}
+      />
       <div onClick={clickLink} className="col-12 col-sm-3 col-md-2 clicable">
         <Image className="card-img-top" src={product.thumb} alt={product.name}/>
       </div>

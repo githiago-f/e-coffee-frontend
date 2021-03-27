@@ -3,11 +3,13 @@ import { cartItemFactory } from 'factory/cart-item';
 import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';
 import { PriceService } from 'service/price-service';
+import { eventLayer } from 'utils/Event';
 
 type inputChange = (ev: ChangeEvent<HTMLInputElement>) => void;
 
-export const useCartItemHooks = (item: CartItem) => {
+export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
   const [quantity, setQuantity] = useState(item.quantity);
+  const [show, setShow] = useState(false);
   const cartService = CartService();
   const priceService = PriceService();
 
@@ -20,21 +22,56 @@ export const useCartItemHooks = (item: CartItem) => {
     document.getElementById('link_' + item.product.code)?.click();
   }, [item.product.code]);
 
-  const changeItem: inputChange = useCallback((ev) => {
-    setQuantity(ev.target.valueAsNumber);
+  const confirmDelete = useCallback(() => {
+    cartService.deleteItem(item.code)
+      .catch(console.error)
+      .finally(() => setShow(false));
+  }, [item, cartService]);
+
+  const cancelDelete = useCallback(() => {
+    setShow(false);
+    setQuantity(1);
   }, []);
 
+  const callDelete = useCallback(() => {
+    setShow(true);
+  }, []);
+
+  const changeItem: inputChange = useCallback(ev => {
+    const value = ev.target.valueAsNumber;
+    if(isNaN(value)) {
+      setQuantity(0);
+      callDelete();
+      return;
+    }
+    if(value === 0) {
+      callDelete();
+    }
+    setQuantity(value);
+  }, [callDelete]);
+
   useEffect(() => {
-    if(quantity !== item.quantity) {
+    if(quantity !== 0) {
       cartService.alterItem(item.product, quantity);
     }
-  }, [quantity, item, cartService]);
+    const totalCartPrice = cartService.changeItemPrice(
+      originalItems, {
+        code: item.code,
+        quantity
+      }
+    );
+    eventLayer.emit('totalChange', totalCartPrice);
+  }, [quantity, callDelete, item, cartService, originalItems]);
 
   return {
     clickLink,
     price,
     product: item.product,
     quantity,
-    changeItem
+    changeItem,
+    callDelete,
+    show,
+    confirmDelete,
+    cancelDelete
   };
 };
