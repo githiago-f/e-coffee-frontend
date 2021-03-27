@@ -41,6 +41,8 @@ export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
     const value = ev.target.valueAsNumber;
     if(isNaN(value)) {
       setQuantity(0);
+      callDelete();
+      return;
     }
     if(value === 0) {
       callDelete();

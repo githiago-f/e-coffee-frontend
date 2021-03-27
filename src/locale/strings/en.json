@@ -36,5 +36,9 @@
       "cancel": "Cancel",
       "confirm": "Confirm"
     }
+  },
+  "errors": {
+    "empty_content": "There is nothing to see here",
+    "none": ""
   }
 }

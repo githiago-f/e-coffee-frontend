@@ -10,7 +10,11 @@ export const useBuyFormHooks = (product: Product) => {
   const priceService = useMemo(() => PriceService(), []);
 
   const buttonAddToCart = useCallback(() => {
-    cartService.alterItem(product, quantity);
+    cartService.alterItem(product, quantity)
+      .then(()=>{
+        document.getElementById('open_cart')?.click();
+      })
+      .catch(console.error);
   }, [product, quantity, cartService]);
 
   const changeQuantity = useCallback((ev: ChangeEvent<HTMLInputElement>) => {

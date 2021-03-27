@@ -7,6 +7,7 @@ import { Spinner } from 'components/Fallbacks/Spinner';
 import { Image } from 'components/Image';
 import { useBuyFormHooks } from './hooks';
 import { Product } from 'entities';
+import { Link } from 'components/Link';
 
 type Props = {
   product: Product;
@@ -29,6 +30,13 @@ export const BuyForm = (props: Props) => {
 
   return (
     <div className="row">
+      <Link 
+        to="/cart"
+        className="hide"
+        tabIndex={-1}
+        hidden
+        id={'open_cart'}
+      ></Link>
       <LoadingContainer hidden={!props.hidden}>
         <Spinner />
       </LoadingContainer>
