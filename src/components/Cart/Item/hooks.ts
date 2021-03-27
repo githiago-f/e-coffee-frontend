@@ -39,16 +39,14 @@ export const useCartItemHooks = (item: CartItem, originalItems: CartItem[]) => {
   }, []);
 
   useEffect(() => {
-    if(quantity !== item.quantity) {
-      cartService.alterItem(item.product, quantity);
-      const totalCartPrice = cartService.changeItemPrice(
-        originalItems, {
-          code: item.code,
-          quantity
-        }
-      );
-      eventLayer.emit('totalChange', totalCartPrice);
-    }
+    cartService.alterItem(item.product, quantity);
+    const totalCartPrice = cartService.changeItemPrice(
+      originalItems, {
+        code: item.code,
+        quantity
+      }
+    );
+    eventLayer.emit('totalChange', totalCartPrice);
   }, [quantity, item, cartService, originalItems]);
 
   return {
