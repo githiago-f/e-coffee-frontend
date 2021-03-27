@@ -6,7 +6,7 @@ import { PriceService } from 'service/price-service';
 
 export const useBuyFormHooks = (product: Product) => {
   const [quantity, setQuantity] = useState(1);
-  const cartService = useMemo(() =>CartService(), []);
+  const cartService = useMemo(() => CartService(), []);
   const priceService = useMemo(() => PriceService(), []);
 
   const buttonAddToCart = useCallback(() => {
@@ -14,7 +14,8 @@ export const useBuyFormHooks = (product: Product) => {
   }, [product, quantity, cartService]);
 
   const changeQuantity = useCallback((ev: ChangeEvent<HTMLInputElement>) => {
-    if(isNaN(ev.target.valueAsNumber)){
+    const num = ev.target.valueAsNumber;
+    if(isNaN(num) || num === 0){
       setQuantity(1);
       return;
     }

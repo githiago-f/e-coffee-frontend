@@ -3,30 +3,31 @@ import { cartItemFactory } from 'factory/cart-item';
 import { eventLayer } from 'utils/Event';
 import { IndexedDB } from 'utils/indexdb/db';
 import { Product } from 'entities';
+import { PriceService } from './price-service';
+
+type item = {
+  code: string;
+  quantity: number;
+}
 
 export const CartService = () => {
+  const priceService = PriceService();
   const getStore = async () => {
     const idb = await IndexedDB();
     return idb.useStore('cart', 'readwrite');
   };
 
-  const self = {} as {
-    alterItem: (product: Product, quantity: number) => void;
-    getAll: () => Promise<CartItem[]>;
-    countItems: () => Promise<number>;
+  const alterItem = async (product: Product, quantity = 1) => {
+    const store = await getStore();
+    const item = cartItemFactory(product, quantity);
+    store.put(item).onsuccess = function() {
+      eventLayer.emit('cartItemsChange', product);
+    };
   };
 
-  self.alterItem = async (product, quantity = 1) => {
+  const getAll = async () => {
     const store = await getStore();
-    store.put(cartItemFactory(product, quantity))
-      .addEventListener('success', function() {
-        eventLayer.emit('cartItemsChange', product);
-      });
-  };
-
-  self.getAll = async () => {
-    const store = await getStore();
-    return new Promise((resolve, reject) => {
+    return new Promise<CartItem[]>((resolve, reject) => {
       const all = store.getAll();
       all.onsuccess = function() {
         resolve(all.result as CartItem[]);
@@ -37,9 +38,9 @@ export const CartService = () => {
     });
   };
 
-  self.countItems = async (): Promise<number> => {
+  const countItems = async () => {
     const store = await getStore();
-    return new Promise((resolve, reject) => {
+    return new Promise<number>((resolve, reject) => {
       const count = store.count();
       count.onsuccess = function() {
         resolve(this.result);
@@ -50,5 +51,17 @@ export const CartService = () => {
     });
   };
 
-  return self;
+  const changeItemPrice = (items: CartItem[], item: item) => {
+    const {code, quantity} = item;
+    const idx = items.findIndex(i => i.code === code);
+    items[idx] =cartItemFactory(items[idx].product, quantity);
+    return priceService.totalCartPrice(items);
+  };
+
+  return {
+    alterItem,
+    countItems,
+    getAll,
+    changeItemPrice
+  };
 };

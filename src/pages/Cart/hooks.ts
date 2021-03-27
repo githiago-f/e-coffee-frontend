@@ -2,6 +2,7 @@ import { CartItem } from 'value-object';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CartService } from 'service/cart-service';
 import { PriceService } from 'service/price-service';
+import { eventLayer } from 'utils/Event';
 
 export const useCartHooks = () => {
   const [items, setItems] = useState([] as CartItem[]);
@@ -27,6 +28,12 @@ export const useCartHooks = () => {
   useEffect(() => {
     const localTotal = priceService.totalCartPrice(items);
     setTotal(localTotal);
+    const totalObserver = eventLayer.on('totalChange', (total) => {
+      setTotal(total);
+    });
+    return () => {
+      eventLayer.off(totalObserver);
+    };
   }, [items, priceService]);
 
   return {

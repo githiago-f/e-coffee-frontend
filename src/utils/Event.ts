@@ -1,4 +1,4 @@
-type keys = 'languageChange' | 'cartItemsChange';
+type keys = 'languageChange' | 'cartItemsChange' | 'totalChange';
 type events = Partial<{[key in keys]: Function[]}>;
 type callback = (...args: any[]) => void;
 

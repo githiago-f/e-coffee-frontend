@@ -14,6 +14,7 @@ export const List = ({items, loading}: Props) => {
     return items.map((item, key) => (
       <Item
         item={item}
+        originalItems={items}
         key={key}
       />
     ));

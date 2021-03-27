@@ -6,13 +6,18 @@ import { Translator } from 'locale';
 import React from 'react';
 import { useCartItemHooks } from './hooks';
 
-export const Item = ({item}: {item: CartItem}) => {
+type ItemProps = {
+  item: CartItem, 
+  originalItems: CartItem[]
+}
+
+export const Item = ({item, originalItems}: ItemProps) => {
   const { 
     clickLink, 
     product, 
     price,
     changeItem,
-    quantity } = useCartItemHooks(item);
+    quantity } = useCartItemHooks(item, originalItems);
 
   return (
     <div className="row">
