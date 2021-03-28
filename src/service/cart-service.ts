@@ -53,9 +53,13 @@ export const CartService = () => {
 
   const changeItemPrice = (items: CartItem[], item: item) => {
     const {code, quantity} = item;
-    const idx = items.findIndex(i => i.code === code);
-    items[idx] =cartItemFactory(items[idx].product, quantity);
-    return priceService.totalCartPrice(items);
+    const newItems = items.map(i=>{
+      if(i.code === code) {
+        return cartItemFactory(i.product, quantity);
+      }
+      return i;
+    });
+    return priceService.totalCartPrice(newItems);
   };
 
   const deleteItem = async (code: string) => {
