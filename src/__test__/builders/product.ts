@@ -7,7 +7,7 @@ export const ProductBuilder = () => {
       return v.toString(16);
     });
   }
-  
+
   const withPriceAndDiscount = (price: number, discount: number) => {
     return productFactory(
       uuidv4(), 
