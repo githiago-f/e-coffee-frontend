@@ -6,6 +6,8 @@ import { PriceService } from 'service/price-service';
 
 export const useBuyFormHooks = (product: Product) => {
   const [quantity, setQuantity] = useState(1);
+  const [hideOriginalPrice, setHiddenPrice] = useState(false);
+
   const cartService = useMemo(() => CartService(), []);
   const priceService = useMemo(() => PriceService(), []);
 
@@ -27,14 +29,20 @@ export const useBuyFormHooks = (product: Product) => {
   }, []);
 
   const currentPrice = useMemo(() => {
-    const cartItem = cartItemFactory(product, quantity);
-    return priceService.productPriceWithDiscount(cartItem);
+    if(product.discount > 0) {
+      const cartItem = cartItemFactory(product, quantity);
+      setHiddenPrice(false);
+      return priceService.productPriceWithDiscount(cartItem);
+    }
+    setHiddenPrice(true);
+    return product.price;
   }, [product, quantity, priceService]);
 
   return {
     buttonAddToCart,
     changeQuantity,
     quantity,
-    currentPrice
+    currentPrice,
+    hideOriginalPrice
   };
 };

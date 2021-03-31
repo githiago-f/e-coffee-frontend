@@ -55,62 +55,62 @@
     {
       "name": "Cappuccino",
       "code": "code-0",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 5.59,
+      "discount": 0.3
     },
     {
       "name": "Irlandês",
       "code": "code-1",
       "price": 7.39,
-      "discount": 0.4
+      "discount": 0.5
     },
     {
       "name": "Mocha",
       "code": "code-2",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 3.99,
+      "discount": 0
     },
     {
       "name": "Espresso",
       "code": "code-3",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 1.50,
+      "discount": 0.8
     },
     {
       "name": "Americano",
       "code": "code-4",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 4.00,
+      "discount": 0.95
     },
     {
       "name": "Frappuccino",
       "code": "code-5",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 3.00,
+      "discount": 0.25
     },
     {
       "name": "Caramel Macchiato",
       "code": "code-6",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 5.99,
+      "discount": 0.15
     },
     {
       "name": "Turco",
       "code": "code-7",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 3.99,
+      "discount": 0
     },
     {
       "name": "Cubano",
       "code": "code-8",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 4.19,
+      "discount": 0
     },
     {
       "name": "Latte",
       "code": "code-9",
-      "price": 7.39,
-      "discount": 0.4
+      "price": 2.39,
+      "discount": 0
     }
   ],
   "config": {

@@ -21,7 +21,8 @@ export const BuyForm = (props: Props) => {
     buttonAddToCart,
     changeQuantity,
     quantity,
-    currentPrice
+    currentPrice,
+    hideOriginalPrice
   } = useBuyFormHooks(props.product);
 
   const currenciedPrice = Translator.i18n.t('product.buyform.addToCart', {
@@ -52,7 +53,9 @@ export const BuyForm = (props: Props) => {
         </div>
         <div className="row">
           <div className="col pb-5 text-right">
-            <Striped>{Translator.nativeToCurrency(props.product.price||0.00)}</Striped>
+            <Striped hidden={hideOriginalPrice}>
+              {Translator.nativeToCurrency(props.product.price||0.00)}
+            </Striped>
             <div className="row">
               <div className="col-4">
                 <div className="form-group">
