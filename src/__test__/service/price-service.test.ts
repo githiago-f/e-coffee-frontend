@@ -1,4 +1,4 @@
-import { CartItem } from 'entities';
+import { CartItem } from 'value-object';
 import { cartItemFactory } from 'factory/cart-item';
 import { PriceService, TPriceService } from 'service/price-service';
 import { ProductBuilder } from '__test__/builders/product';
