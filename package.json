@@ -21,7 +21,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "test": "react-scripts test",
+        "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
         "eject": "react-scripts eject",
         "lint": "eslint --ext .tsx,.ts,.js,.jsx src",
         "lint:fix": "yarn lint --fix"
@@ -44,6 +44,8 @@
         "@types/react-test-renderer": "^16.9.3",
         "@types/redux": "^3.6.0",
         "@types/styled-components": "^5.1.0",
+        "fake-indexeddb": "^3.1.2",
+        "jest-environment-jsdom-sixteen": "^1.0.3",
         "typescript": "4.0.3"
     },
     "browserslist": {
