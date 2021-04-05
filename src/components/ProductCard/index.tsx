@@ -17,7 +17,8 @@ const ProductCard = (props: Props) => {
   const {discounted} = useProductCardHooks(props.product);
 
   return (
-    <Link 
+    <Link
+      data-testid="product-item"
       to={`/product/${code}`}
       title={Translator.i18n.t('product.title', { title: name })}
     >

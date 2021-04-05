@@ -15,8 +15,8 @@ export const Recommended = () => {
   }, [ products, lang ]);
 
   return (
-    <div className="content">
-      <h2>{Translator.i18n.translate('recomendations.title')}</h2>
+    <div className="content" data-testid="recomended-container" >
+      <h2 data-testid="recomended-section-title">{Translator.i18n.translate('recomendations.title')}</h2>
       <div className="row">
         {renderList}
       </div>

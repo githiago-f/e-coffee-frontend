@@ -16,10 +16,10 @@ export const StoreList = ({asList, stores, total, onLoadMore}: Props) => {
   const { renderList } = useStoreListHooks(stores);
 
   return (
-    <div className="content py-3">
+    <div className="content py-3" data-testid="store-list-container">
       <div className="row">
         <div className="col-12 col-sm-12 col-md-9">
-          <h2>
+          <h2 data-testid="store-list-title">
             {Translator.i18n.translate('shops.title')}
           </h2>
         </div>
