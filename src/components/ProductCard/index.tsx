@@ -4,6 +4,8 @@ import { Link } from 'components/Link';
 import { Translator } from 'locale';
 import { Image } from 'components/Image';
 import { Product } from 'entities';
+import { Striped } from 'components/StyledBase/styles';
+import { useProductCardHooks } from './hooks';
 
 type Props = {
   product: Product;
@@ -11,6 +13,8 @@ type Props = {
 
 const ProductCard = (props: Props) => {
   const { name, price, thumb, code } = props.product;
+
+  const {discounted} = useProductCardHooks(props.product);
 
   return (
     <Link 
@@ -25,12 +29,15 @@ const ProductCard = (props: Props) => {
           src={thumb}
         />
         <div className="p-2">
-          <h3>
-            <small>{name}</small>
-          </h3>
+          <h3> {name} </h3>
+          <div className="row">
+            <Striped hidden={price === discounted}>{Translator.nativeToCurrency(price)}</Striped>
+          </div>
           <div className="row">
             <Price
-              price={price}
+              size="1.5rem"
+              bold="600"
+              price={discounted}
             />
           </div>
         </div>
