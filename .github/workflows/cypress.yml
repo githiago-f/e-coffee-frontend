@@ -1,0 +1,25 @@
+name: cypress test
+
+on: 
+  [push]
+  # push: 
+    # branches: [gh-pages]
+
+jobs:
+  cypress-run:
+      runs-on: ubuntu-latest
+      needs: build
+      steps:
+        - name: get Cypress
+          uses: actions/checkout@v2
+          with: 
+            repository: 'nikolasFreitas/cypress-e-coffre-frontend'
+            path: cypress-e-coffre-frontend
+        - name: export gh-pages
+          run: export CYPRESS_BASE_URL=${{secrets.GIT_HUB_PAGES}}
+        - run: "echo \"Cypress url: $CYPRESS_BASE_URL\""
+        - name: Cypress run
+          uses: cypress-io/github-action@v2
+          with:
+            browser: chrome
+            headless: true
