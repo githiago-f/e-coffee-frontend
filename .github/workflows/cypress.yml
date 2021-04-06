@@ -27,3 +27,4 @@ jobs:
         with:
           browser: chrome
           headless: true
+          record: false
