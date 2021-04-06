@@ -13,11 +13,14 @@ jobs:
         uses: actions/checkout@v2
         with: 
           repository: 'nikolasFreitas/cypress-e-coffre-frontend'
+
       - name: export gh-pages
         shell: bash
-        env: $PAGES_URL=${{ secrets.PAGES_URL }}
+        env: PAGES_URL=${{ secrets.PAGES_URL }}
         run: export CYPRESS_BASE_URL=$PAGES_URL
+
       - run: "echo \"Cypress url: $CYPRESS_BASE_URL\""
+
       - name: Cypress run
         env: 
           CYPRESS_BASE_URL: ${{ secrets.PAGES_URL }}
