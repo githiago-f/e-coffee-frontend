@@ -16,8 +16,10 @@ jobs:
 
       - name: export gh-pages
         shell: bash
-        env: PAGES_URL=${{ secrets.PAGES_URL }}
-        run: "echo \"Cypress url: $PAGES_URL\""
+        env: 
+          PAGES_URL: ${{ secrets.PAGES_URL }}
+        run: 
+          echo "Cypress url: $PAGES_URL"
 
       - name: Cypress run
         env: 
