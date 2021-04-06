@@ -21,3 +21,5 @@ jobs:
         with:
           browser: chrome
           headless: true
+        env: 
+          CYPRESS_BASE_URL: ${{ secrets.PAGES_URL }}
