@@ -18,8 +18,7 @@ jobs:
         shell: bash
         env: 
           PAGES_URL: ${{ secrets.PAGES_URL }}
-        run: 
-          echo "Cypress url: $PAGES_URL"
+        run:  echo "Cypress url: $PAGES_URL"
 
       - name: Cypress run
         env: 
