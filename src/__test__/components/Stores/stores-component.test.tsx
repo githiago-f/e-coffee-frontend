@@ -21,7 +21,7 @@ describe('#components/stores - UI', () => {
       getTotal: jest.fn().mockReturnValue(promiseStoreApiGetTotal),
     });
 
-    render(<Stores/>);
+      render(<Stores/>);
     await act(() => Promise.all([promiseStoreApiGetAll, promiseStoreApiGetTotal]).then());
   });
 
