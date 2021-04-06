@@ -23,7 +23,11 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
+    - name: run scripts
     - run: yarn
+    - name: test application
     - run: yarn test
+    - name: elsint check
     - run: yarn lint
+    - name: build application
     - run: yarn build
