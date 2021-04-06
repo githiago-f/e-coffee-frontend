@@ -14,12 +14,11 @@ jobs:
         with: 
           repository: 'nikolasFreitas/cypress-e-coffre-frontend'
 
-      - name: export gh-pages
-        shell: bash
+      - shell: bash
         env: 
           PAGES_URL: ${{ secrets.PAGES_URL }}
         run: |
-          "Cypress url: $PAGES_URL"
+          echo $PAGES_URL
 
       - name: Cypress run
         env: 
