@@ -14,15 +14,15 @@ jobs:
         with: 
           repository: 'nikolasFreitas/cypress-e-coffre-frontend'
 
-      - shell: bash
-        env: 
-          PAGES_URL: ${{ secrets.PAGES_URL }}
-        run: |
-          echo $PAGES_URL
+      # - shell: bash
+      #   env: 
+      #     PAGES_URL: ${{ secrets.PAGES_URL }}
+      #   run: |
+      #     echo $PAGES_URL
 
       - name: Cypress run
-        env: 
-          CYPRESS_BASE_URL: ${{ secrets.PAGES_URL }}
+        # env: 
+          # CYPRESS_BASE_URL: ${{ secrets.PAGES_URL }}
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
