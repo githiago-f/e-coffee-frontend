@@ -1,3 +1,5 @@
+# E-COFFEE ☕
+
 [![CD](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml/badge.svg?branch=master)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml)
 [![CI](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml/badge.svg)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml)
 
