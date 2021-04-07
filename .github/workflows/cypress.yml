@@ -29,10 +29,12 @@ jobs:
         with:
           node-version: 14
 
-      - name: start application
+      - name: Installing app
         working-directory: cypress
         run: yarn
-        run: yarn start
+      - name: Running app
+        working-directory: cypress
+        run: yarn start&
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
