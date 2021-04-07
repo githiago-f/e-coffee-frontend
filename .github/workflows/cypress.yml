@@ -20,10 +20,6 @@ jobs:
           repository: 'nikolasFreitas/cypress-e-coffre-frontend'
           path: cypress
 
-      - shell: bash
-        run: |
-          ls
-
       - name: run application
         uses: actions/setup-node@v2
         with:
