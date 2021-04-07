@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Get application
         uses: actions/checkout@v2
-          with:
-            path: main
+        with:
+          path: main
 
       - name: get Cypress
         uses: actions/checkout@v2
