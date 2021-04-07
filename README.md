@@ -13,9 +13,9 @@ Este projeto é um estudo sobre acessibilidade que integra funcionalidades bási
 
 Ao contribuir com este repositório, você deve adicionar aqui quaisquer utilitários interessantes do código, por exemplo:
 
-### Componente Price 
+### Componente Price
 
-> path `components/Price` 
+> path `components/Price`
 
 Todas as interfaces que demonstram algum preço devem utilizar este componente para serem atualizadas conforme a unidade monetária da linguagem selecionada pelo usuário.
 
@@ -23,14 +23,15 @@ Todas as interfaces que demonstram algum preço devem utilizar este componente p
 
 ### Traduções
 
-path `locale/strings/*.json` 
+path `locale/strings/*.json`
 
 Todas as linguagens presentes nesta seção devem ter as mesmas chaves que os documentos pt-br.json ou en.json e serem formas inteligíveis da utilização da linguagem.
 
-Ex.: 
+Ex.:
 path `locale/strings/en.json`
 
 content:
+
 ```json
 {
   "recomendations": {
@@ -41,7 +42,8 @@ content:
 
 path `locale/strings/pt-br.json`
 
-content: 
+content:
+
 ```json
 {
   "recomendations": {
@@ -67,10 +69,3 @@ Este objeto contém uma instância da interface [i18n](http://i18njs.com/), e po
 ## Contribuindo com o projeto
 
 Leia as instruções aqui [contribuition.md](https://github.com/githiago-f/e-coffee-frontend/blob/master/CONTRIBUITION.md)
-
-
-
-
-
-
-
