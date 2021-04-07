@@ -30,16 +30,16 @@ jobs:
           node-version: 14
 
       - name: Installing app
-        working-directory: cypress
+        working-directory: main
         run: yarn
       - name: Running app
-        working-directory: cypress
+        working-directory: main
         run: yarn start&
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
-        working-directory: cypress
         with:
+          working-directory: cypress
           browser: chrome
           headless: true
           record: false
