@@ -8,7 +8,7 @@ on:
     branches: [ master ]
 
 jobs:
-  ci:
+  CHECK-APP:
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,37 +31,37 @@ jobs:
       - name: build application
         run: yarn build
 
-    e2e:
-      needs: ci
-      runs-on: ubuntu-latest
-      steps:
-        - name: Get application
-          uses: actions/checkout@v2
-          with:
-            path: main
+  e2e:
+    needs: CHECK-APP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get application
+        uses: actions/checkout@v2
+        with:
+          path: main
 
-        - name: get Cypress
-          uses: actions/checkout@v2
-          with: 
-            repository: 'nikolasFreitas/cypress-e-coffre-frontend'
-            path: cypress
+      - name: get Cypress
+        uses: actions/checkout@v2
+        with: 
+          repository: 'nikolasFreitas/cypress-e-coffre-frontend'
+          path: cypress
 
-        - name: run application
-          uses: actions/setup-node@v2
-          with:
-            node-version: 14
+      - name: run application
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
-        - name: Installing app
-          working-directory: main
-          run: yarn
-        - name: Running app
-          working-directory: main
-          run: yarn start&
+      - name: Installing app
+        working-directory: main
+        run: yarn
+      - name: Running app
+        working-directory: main
+        run: yarn start&
 
-        - name: Cypress run
-          uses: cypress-io/github-action@v2
-          with:
-            working-directory: cypress
-            browser: chrome
-            headless: true
-            record: false
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: cypress
+          browser: chrome
+          headless: true
+          record: false
