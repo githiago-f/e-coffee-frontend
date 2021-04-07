@@ -27,6 +27,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+
+      - name: start application
         working-directory: cypress
         run: yarn
         run: yarn start
