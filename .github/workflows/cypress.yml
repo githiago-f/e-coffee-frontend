@@ -9,21 +9,33 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
+      - name: Get application
+        uses: actions/checkout@v2
+        path: main
+
       - name: get Cypress
         uses: actions/checkout@v2
         with: 
           repository: 'nikolasFreitas/cypress-e-coffre-frontend'
+        path: cypress
 
-      # - shell: bash
-      #   env: 
-      #     PAGES_URL: ${{ secrets.PAGES_URL }}
-      #   run: |
-      #     echo $PAGES_URL
+      - shell: bash
+        run: |
+          ls
+
+      - name: run application
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+        working-directory: cypress
+        run: yarn
+        run: yarn start
 
       - name: Cypress run
         # env: 
           # CYPRESS_BASE_URL: ${{ secrets.PAGES_URL }}
         uses: cypress-io/github-action@v2
+        working-directory: cypress
         with:
           browser: chrome
           headless: true
