@@ -51,6 +51,7 @@ describe('#components/stores - UI', () => {
       const rateNumberInTitle = Number(title.replace(/[A-z]/g, ''));
       //Match the rounded value of rate number in title (to integger) with activeBadgeLength (integger)
       expect(activeBadgeLength).toEqual(Math.round(rateNumberInTitle));
+      fail();
     });
   });
 });
