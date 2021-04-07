@@ -14,6 +14,7 @@ export const ThumbImage = styled.div<{ src: string; }>`
 
   @media only screen and (max-width: 766px) {
     min-height: calc(200px + 5vw);
+    background: white;
   }
 `;
 
