@@ -4,11 +4,10 @@ import Stores from 'pages/Stores';
 import * as storeApi from 'api/store.api';
 import bffData from 'api/bff-data.json';
 import { Store } from 'entities';
-
-jest.mock('react-router-dom');
+import { MemoryRouter } from 'react-router';
 
 describe('#components/stores - UI', () => {
-
+  console.warn = jest.fn();
   let spyStoreApi: jest.SpyInstance;
   let spyStoreGetTotal: jest.SpyInstance;
   beforeEach(async () => {
@@ -21,7 +20,11 @@ describe('#components/stores - UI', () => {
       getTotal: jest.fn().mockReturnValue(promiseStoreApiGetTotal),
     });
 
-    render(<Stores/>);
+    render(
+      <MemoryRouter>
+        <Stores/>
+      </MemoryRouter>
+    );
     await act(() => Promise.all([promiseStoreApiGetAll, promiseStoreApiGetTotal]).then());
   });
 
@@ -30,8 +33,24 @@ describe('#components/stores - UI', () => {
   });
 
   it('should have a list of product with same length of store in bffData json', () => {
-    const screenNumber = screen.getAllByTestId('store-item');
-    
-    expect(screenNumber).toHaveLength(bffData.stores.length);
+    expect(screen.getAllByTestId('store-item')).toHaveLength(bffData.stores.length);
+  });
+
+  // Test if the compoennt
+  it('should have the quantity of active bedges equal of attribute title', async () => {
+    const ratingBoxList = await screen.findAllByTestId('rating-container');
+    const activeDatatestid = '[data-testid="rating-badge-true"]';
+
+    ratingBoxList.forEach(ratingBox => {
+      const title = ratingBox.getAttribute('title');
+
+      const rateBadgeList = ratingBox.querySelectorAll(activeDatatestid);
+      const activeBadgeLength = rateBadgeList.length;
+      if (!title) fail('Title is not found');
+      //Replace the letters
+      const rateNumberInTitle = Number(title.replace(/[A-z]/g, ''));
+      //Match the rounded value of rate number in title (to integger) with activeBadgeLength (integger)
+      expect(activeBadgeLength).toEqual(Math.round(rateNumberInTitle));
+    });
   });
 });
