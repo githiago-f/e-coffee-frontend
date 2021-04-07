@@ -1,4 +1,5 @@
-![TravisCI](https://travis-ci.com/githiago-f/e-coffee-frontend.svg?branch=master)
+[![CD](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml/badge.svg?branch=master)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml)
+[![CI](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml/badge.svg?branch=master)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
