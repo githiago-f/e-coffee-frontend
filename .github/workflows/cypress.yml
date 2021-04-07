@@ -1,9 +1,8 @@
 name: cypress test
 
 on: 
-  [push]
-  # push: 
-    # branches: [gh-pages]
+  push: 
+    branches: [gh-pages]
 
 jobs:
   cypress-run:
