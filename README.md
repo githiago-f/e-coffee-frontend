@@ -23,14 +23,21 @@ Todas as interfaces que demonstram algum preço devem utilizar este componente p
 
 -------------------------------------------------
 
+### Workflow
+
+O workflow roda no [github actions](https://docs.github.com/en/actions) e possui um projeto separado para do [cypress](https://www.cypress.io/) para teste e2e neste fluxo.
+
+- CI: runs on PR to master;
+- CD: runs on push to master and publish application in gh-page;
+
 ### Traduções
 
-path `locale/strings/*.json`
+> path `locale/strings/*.json`
 
 Todas as linguagens presentes nesta seção devem ter as mesmas chaves que os documentos pt-br.json ou en.json e serem formas inteligíveis da utilização da linguagem.
 
 Ex.:
-path `locale/strings/en.json`
+>path `locale/strings/en.json`
 
 content:
 
@@ -42,7 +49,7 @@ content:
 }
 ```
 
-path `locale/strings/pt-br.json`
+>path `locale/strings/pt-br.json`
 
 content:
 
