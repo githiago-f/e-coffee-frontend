@@ -5,9 +5,9 @@ import Cart from 'components/Cart';
 
 export const Nav = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light bg-light" data-testid="navigation-bar">
       <div className="container">
-        <a className="navbar-brand" href="/e-coffee-frontend">
+        <a className="navbar-brand" href="/e-coffee-frontend" data-testid="navigation-bar-jumbotron">
           <img 
             src={Icons['coffee-logo']}
             className="d-inline-block align-top"
@@ -16,7 +16,9 @@ export const Nav = () => {
             alt="E-coffee logo"
             loading="lazy"
           />
-          E-coffee
+          <span>
+            E-coffee
+          </span>
         </a>
         <div style={{display: 'inline-flex'}}>
           <Cart.NavIcon />

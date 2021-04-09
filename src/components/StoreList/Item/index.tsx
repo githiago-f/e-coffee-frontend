@@ -11,7 +11,7 @@ type Props = {
 
 export const StoreItem = (props: Props) => {
   return (
-    <div className="col-12 my-3">
+    <div className="col-12 my-3" data-testid="store-item">
       <Link 
         to={`/shop/${props.store.id}`}
         title={Translator.i18n.translate('shops.buttonSeeStore')}
