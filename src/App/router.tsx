@@ -19,7 +19,7 @@ export const BaseRoutes = () => {
 
   return (
     <LanguageContext.Provider value={languageHooks}>
-      <Router basename={'e-coffee-frontend'}>
+      <Router>
         <Route exact path="/" component={HomePage} />
         <Route path="/product/:code" component={Product}/>
         <Route path="/shop/:shop_id" component={StorePage} />
