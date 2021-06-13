@@ -53,7 +53,7 @@ jobs:
 
     - name: Run install, build and test before deploy
       run: |
-        set PUBLIC_URL=https://githiago-f.github.io/e-coffee-frontend/
+        set PUBLIC_URL=https://ecoffee.dev.br
         yarn
         yarn test
         yarn build
