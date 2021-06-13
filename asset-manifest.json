@@ -1,0 +1,28 @@
+{
+  "files": {
+    "static/js/0.9d790ab4.chunk.js": "/e-coffee-frontend/static/js/0.9d790ab4.chunk.js",
+    "static/js/0.9d790ab4.chunk.js.map": "/e-coffee-frontend/static/js/0.9d790ab4.chunk.js.map",
+    "main.js": "/e-coffee-frontend/static/js/main.438dc2a5.chunk.js",
+    "main.js.map": "/e-coffee-frontend/static/js/main.438dc2a5.chunk.js.map",
+    "runtime-main.js": "/e-coffee-frontend/static/js/runtime-main.f0bdf008.js",
+    "runtime-main.js.map": "/e-coffee-frontend/static/js/runtime-main.f0bdf008.js.map",
+    "static/js/3.1ab72be8.chunk.js": "/e-coffee-frontend/static/js/3.1ab72be8.chunk.js",
+    "static/js/3.1ab72be8.chunk.js.map": "/e-coffee-frontend/static/js/3.1ab72be8.chunk.js.map",
+    "index.html": "/e-coffee-frontend/index.html",
+    "precache-manifest.46394782746423ce01a87fc1094a182d.js": "/e-coffee-frontend/precache-manifest.46394782746423ce01a87fc1094a182d.js",
+    "service-worker.js": "/e-coffee-frontend/service-worker.js",
+    "static/js/3.1ab72be8.chunk.js.LICENSE.txt": "/e-coffee-frontend/static/js/3.1ab72be8.chunk.js.LICENSE.txt",
+    "static/media/cart.svg": "/e-coffee-frontend/static/media/cart.38dae47f.svg",
+    "static/media/coffee.svg": "/e-coffee-frontend/static/media/coffee.95a76351.svg",
+    "static/media/down-rating-coffee.svg": "/e-coffee-frontend/static/media/down-rating-coffee.063d5b24.svg",
+    "static/media/left-chevron.svg": "/e-coffee-frontend/static/media/left-chevron.c5b73bfd.svg",
+    "static/media/right-chevron.svg": "/e-coffee-frontend/static/media/right-chevron.6cea9b53.svg",
+    "static/media/undraw_empty_xct9.svg": "/e-coffee-frontend/static/media/undraw_empty_xct9.cfb49f55.svg",
+    "static/media/up-rating-coffee.svg": "/e-coffee-frontend/static/media/up-rating-coffee.5696dd50.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f0bdf008.js",
+    "static/js/3.1ab72be8.chunk.js",
+    "static/js/main.438dc2a5.chunk.js"
+  ]
+}
