@@ -7,6 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Sobre
 
+**Attention! new version is comming**
+
 Este projeto é um estudo sobre acessibilidade que integra funcionalidades básicas de uma loja online. O objetivo deste estudo não é entregar uma loja online, mas sim um site extremamente acessível, onde o controle de qualdiade é baseado na entrega de componentes e de estruturas simplificadas e que expressam um modelo básico para uma loja online.
 
 -------------------------------------------------
