@@ -1,5 +1,4 @@
-import { Product } from 'entities';
-import { productFactory } from 'factory/product';
+import { Product } from 'entity/Product';
 
 type ProductApi = {
   getRecommendations(): Promise<Product[]>;
@@ -14,7 +13,7 @@ type JsonProduct = {
   discount: number;
 }
 
-const toProduct = (i: JsonProduct) => productFactory(i.code, i.name, i.price, i.discount);
+const toProduct = (i: JsonProduct) => new Product(i.code, i.name, i.name, i.price);
 
 export const productApi = () => {
   const self = {} as ProductApi;

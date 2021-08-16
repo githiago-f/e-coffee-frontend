@@ -1,0 +1,9 @@
+.store-list {
+  @apply flex flex-col mx-auto;
+}
+.store-list .store {
+  @apply flex w-full sm:w-8/12 my-3 mx-auto;
+}
+.store-list .store .store-name {
+  @apply text-lg font-semibold overflow-ellipsis;
+}

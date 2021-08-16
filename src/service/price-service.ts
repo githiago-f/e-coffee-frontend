@@ -1,4 +1,4 @@
-import { CartItem } from 'value-object';
+import { CartItem } from 'entity/CartItem';
 
 export type TPriceService = {
   productPriceWithDiscount(item: CartItem): number;
@@ -9,16 +9,13 @@ export const PriceService = () => {
   const self = {} as TPriceService;
 
   self.productPriceWithDiscount = ({ product, quantity }) => {
-    const {price, discount} = product;
-    const discountPrice = price * discount;
-    const discounted = (price - discountPrice) * quantity;
-    return parseFloat(discounted.toFixed(2));
+    // TODO
+    return 0;
   };
 
   self.totalCartPrice = (items) => {
-    return items
-      .map(self.productPriceWithDiscount)
-      .reduce((a, b) => a + b, 0);
+    // TODO
+    return 0;
   };
 
   return self;

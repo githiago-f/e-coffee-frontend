@@ -1,6 +1,4 @@
-import { Spinner } from 'components/Fallbacks/Spinner';
-import { LoadingContainer } from 'components/StyledBase/styles';
-import { CartItem } from 'value-object';
+import { CartItem } from 'entity/CartItem';
 import React, { useMemo } from 'react';
 import { Item } from '../Item';
 
@@ -13,18 +11,16 @@ export const List = ({items, loading}: Props) => {
   const list = useMemo(() => {
     return items.map((item, key) => (
       <Item
-        item={item}
-        originalItems={items}
+        productId={item.product.id}
+        product={item.product}
         key={key}
+        quantity={item.quantity}
       />
     ));
   }, [items]);
 
   return (
     <>
-      <LoadingContainer height={'100%'} hidden={!loading}>
-        <Spinner/>
-      </LoadingContainer>
       <div hidden={loading}>
         {list}
       </div>

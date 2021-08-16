@@ -1,30 +1,26 @@
-import { Icons } from 'assets';
-import { Link } from 'components/Link';
+import { cartIcon } from 'assets';
 import { Translator } from 'locale';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCartNavIconHooks } from './hooks';
-import { CartNumber, StatusWrapper } from './styles';
+import './style.css';
 
 export function NavIcon() {
   const { itemsCount } = useCartNavIconHooks();
 
   return (
-    <Link 
-      className="px-4"
-      title={Translator.i18n.t('cart.openCart')} 
-      to="/cart"
-    >
-      <StatusWrapper>
-        <CartNumber show={itemsCount > 0}>
+    <Link title={Translator.i18n.t('cart.openCart')} to="/cart">
+      <div>
+        <div className="cart-icon" hidden={itemsCount > 0}>
           {itemsCount}
-        </CartNumber>
-        <img 
-          src={Icons['cart']} 
+        </div>
+        <img
+          src={cartIcon} 
           alt="Carrinho"
           height="28"
           width="28"
         />
-      </StatusWrapper>
+      </div>
     </Link>
   );
 }

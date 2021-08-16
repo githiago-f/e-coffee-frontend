@@ -1,44 +1,37 @@
 import React from 'react';
 import { Price } from 'components/Price';
-import { Link } from 'components/Link';
 import { Translator } from 'locale';
-import { Image } from 'components/Image';
-import { Product } from 'entities';
-import { Striped } from 'components/StyledBase/styles';
-import { useProductCardHooks } from './hooks';
+import { Product } from 'entity/Product';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: Product;
 }
 
 const ProductCard = (props: Props) => {
-  const { name, price, thumb, code } = props.product;
-
-  const {discounted} = useProductCardHooks(props.product);
-
   return (
     <Link
       data-testid="product-item"
-      to={`/product/${code}`}
-      title={Translator.i18n.t('product.title', { title: name })}
+      to={`/product/${props.product.id}`}
+      title={Translator.i18n.t('product.title', { title: props.product.name })}
     >
       <div className="p-2">
-        <Image
-          title={Translator.i18n.t('product.cover', { name })}
-          alt={`cover-${name.toLowerCase().replace(/[\s]/gi, '-')}`}
+        <img
+          title={Translator.i18n.t('product.cover', { name: props.product.name })}
+          alt={`cover-${props.product.name.toLowerCase().replace(/[\s]/gi, '-')}`}
           loading="lazy"
-          src={thumb}
+          src={props.product.image}
         />
         <div className="p-2">
           <h3> {name} </h3>
           <div className="row">
-            <Striped hidden={price === discounted}>{Translator.nativeToCurrency(price)}</Striped>
+            <Price price={props.product.price} />
           </div>
           <div className="row">
             <Price
               size="1.5rem"
               bold="600"
-              price={discounted}
+              price={props.product.price}
             />
           </div>
         </div>

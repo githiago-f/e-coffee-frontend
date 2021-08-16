@@ -1,8 +1,5 @@
-import { LanguageOption } from 'value-object';
-import { languageFactory } from 'factory/language-factory';
-
 type LanguageApi = {
-  getLanguages(): Promise<LanguageOption[]>;
+  getLanguages(): Promise<any[]>;
 }
 
 type JsonProduct = {
@@ -10,15 +7,14 @@ type JsonProduct = {
   label: string;
 }
 
-const toLangObject = (i: JsonProduct) => languageFactory(i.label, i.value);
+const toLangObject = (i: JsonProduct) => {};
 
 export const configApi = () => {
   const self = {} as LanguageApi;
 
   const data = import('./bff-data.json');
 
-  self.getLanguages = async () => (await data).config.languages
-    .map(toLangObject);
+  self.getLanguages = async () => [];
 
   return self;
 };

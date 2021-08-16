@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState, ChangeEvent } from 'react';
 import { Translator } from 'locale';
 import { eventLayer } from 'utils/Event';
-import { LanguageOption } from 'value-object';
 import { configApi } from 'api/config.api';
 
-const defaultVal = [{value: '', label: 'Carregando...'}] as LanguageOption[];
+const defaultVal = [{value: '', label: 'Carregando...'}] as any[];
 
 export const useLanguageHooks = () => {
   const [lang, setLang] = useState(Translator.currentLanguage());

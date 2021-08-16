@@ -4,10 +4,8 @@ type Props = PropsWithChildren<{}>;
 
 export const Container = (props: Props) => {
   return (
-    <div className="container py-3">
-      <div className="content">
-        {props.children}
-      </div>
+    <div className="container mx-auto sm:px-2 min-h-screen overflow-auto">
+      {props.children}
     </div>
   );
 };

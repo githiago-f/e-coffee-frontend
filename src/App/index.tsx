@@ -1,12 +1,11 @@
 import React from 'react';
-import { BaseRoutes } from 'App/router';
+import './../assets/css/index.css';
+import { BaseRoutes } from 'app/router';
 
-const App = () => {
-  return (
-    <React.StrictMode>
-      <BaseRoutes />
-    </React.StrictMode>
-  );
-};
+const App = () => (
+  <React.StrictMode>
+    <BaseRoutes />
+  </React.StrictMode>
+);
 
 export default App;
