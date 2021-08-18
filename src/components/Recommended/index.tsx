@@ -8,18 +8,25 @@ export const Recommended = () => {
 
   const renderList = useMemo(() => {
     return products.map((product, index) => (
-      <div key={index} data-language={lang} className="col-12 col-sm-6 col-md-3">
+      <div 
+        key={index}
+        data-language={lang}
+        className="w-full sm:w-6/12 md:w-3/12"
+      >
         <ProductCard product={product} />
       </div>
     ));
   }, [ products, lang ]);
 
   return (
-    <div className="content" data-testid="recomended-container" >
-      <h2 data-testid="recomended-section-title">{Translator.i18n.translate('recomendations.title')}</h2>
-      <div className="row">
+    <>
+      <h2  
+        className="text-3xl font-semibold"
+        data-testid="recomended-section-title"
+      >{Translator.i18n.translate('recomendations.title')}</h2>
+      <div className="flex flex-row">
         {renderList}
       </div>
-    </div>
+    </>
   );
 };

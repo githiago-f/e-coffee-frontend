@@ -8,4 +8,12 @@ export class CartItem {
   ) {
     this.productId = product.id;
   }
+
+  public get total(): number {
+    return this.quantity * this.product.price;
+  }
+
+  public priceWithDiscount(discount: number): number {
+    return this.total - (this.total * discount);
+  }
 }

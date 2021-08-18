@@ -11,10 +11,8 @@ export const List = ({items, loading}: Props) => {
   const list = useMemo(() => {
     return items.map((item, key) => (
       <Item
-        productId={item.product.id}
-        product={item.product}
         key={key}
-        quantity={item.quantity}
+        item={item}
       />
     ));
   }, [items]);

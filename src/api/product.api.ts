@@ -10,7 +10,6 @@ type JsonProduct = {
   name: string;
   code: string;
   price: number;
-  discount: number;
 }
 
 const toProduct = (i: JsonProduct) => new Product(i.code, i.name, i.name, i.price);
