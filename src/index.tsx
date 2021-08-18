@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from 'app';
+import './assets/css/index.css';
 import * as serviceWorker from 'serviceWorker';
+import { BaseRoutes } from 'routes';
 
 ReactDOM.render(
-  <App />,
+  <React.StrictMode>
+    <BaseRoutes />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

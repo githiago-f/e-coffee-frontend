@@ -1,6 +1,6 @@
 import React from 'react';
 import { coffeeIcon } from 'assets';
-import Language from 'components/Language';
+import LanguageSelector from 'components/Language';
 import Cart from 'components/Cart';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -23,7 +23,7 @@ export const Nav = () => {
         </Link>
         <div className="flex">
           <Cart.NavIcon />
-          <Language />
+          <LanguageSelector />
         </div>
       </div>
     </nav>

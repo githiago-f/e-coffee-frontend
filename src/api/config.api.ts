@@ -1,20 +1,9 @@
-type LanguageApi = {
-  getLanguages(): Promise<any[]>;
+import { Language } from 'entity/Language';
+
+export class ConfigAPI {
+  private configRequest = import('./bff-data.json');
+
+  async getLanguages(): Promise<Language[]> {
+    return (await this.configRequest).config.languages;
+  }
 }
-
-type JsonProduct = {
-  value: string;
-  label: string;
-}
-
-const toLangObject = (i: JsonProduct) => {};
-
-export const configApi = () => {
-  const self = {} as LanguageApi;
-
-  const data = import('./bff-data.json');
-
-  self.getLanguages = async () => [];
-
-  return self;
-};
