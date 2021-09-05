@@ -1,14 +1,23 @@
 import { LanguageContext } from 'context/LanguageContext';
+import { Language } from 'entity/Language';
 import React, { useContext } from 'react';
 
-const Language = () => {
+const LanguageOption = (props: { language: Language }) => (
+  <option 
+    key={props.language.value}
+    value={props.language.value} 
+    data-testid={`language-selector-option-${props.language.value}`}
+  >{props.language.label}</option>
+);
+
+const LanguageSelector = () => {
   const { changeLanguage, lang, options } = useContext(LanguageContext);
 
   return (
-    <select onChange={changeLanguage} className="form-select ml-3" value={lang}> 
-      {options.map(i => <option key={i.value} value={i.value}>{i.label}</option>)}
+    <select onChange={changeLanguage} value={lang} data-testid="language-selector">
+      {options.map((i, id) => <LanguageOption key={id} language={i} />)}
     </select>
   );
 };
 
-export default Language;
+export default LanguageSelector;

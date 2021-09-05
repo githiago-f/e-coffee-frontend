@@ -1,13 +1,15 @@
-![TravisCI](https://travis-ci.com/githiago-f/e-coffee-frontend.svg?branch=master)
+# E-COFFEE ☕
+
+[![CD](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml/badge.svg?branch=master)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/cd.yml)
+[![CI](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml/badge.svg)](https://github.com/nikolasFreitas/e-coffee-frontend/actions/workflows/CI.yml)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Sobre
 
-Este projeto é um estudo sobre acessibilidade que integra funcionalidades básicas de uma loja online. O objetivo deste estudo não é entregar uma loja online, mas sim um site extremamente acessível, onde o controle de qualdiade é baseado na entrega de componentes e de estruturas simplificadas e que expressam um modelo básico para uma loja online.
+**Attention! new version is comming**
 
-#### todo 
-> ADICIONAR IMAGEM DE UML DE NAVEGAÇÃO DO SITE.
+Este projeto é um estudo sobre acessibilidade que integra funcionalidades básicas de uma loja online. O objetivo deste estudo não é entregar uma loja online, mas sim um site extremamente acessível, onde o controle de qualdiade é baseado na entrega de componentes e de estruturas simplificadas e que expressam um modelo básico para uma loja online.
 
 -------------------------------------------------
 
@@ -15,24 +17,32 @@ Este projeto é um estudo sobre acessibilidade que integra funcionalidades bási
 
 Ao contribuir com este repositório, você deve adicionar aqui quaisquer utilitários interessantes do código, por exemplo:
 
-### Componente Price 
+### Componente Price
 
-> path `components/Price` 
+> path `components/Price`
 
 Todas as interfaces que demonstram algum preço devem utilizar este componente para serem atualizadas conforme a unidade monetária da linguagem selecionada pelo usuário.
 
 -------------------------------------------------
 
+### Workflow
+
+O workflow roda no [github actions](https://docs.github.com/en/actions) e possui um projeto separado para do [cypress](https://www.cypress.io/) para teste e2e neste fluxo.
+
+- CI: runs on PR to master;
+- CD: runs on push to master and publish application in gh-page;
+
 ### Traduções
 
-path `locale/strings/*.json` 
+> path `locale/strings/*.json`
 
 Todas as linguagens presentes nesta seção devem ter as mesmas chaves que os documentos pt-br.json ou en.json e serem formas inteligíveis da utilização da linguagem.
 
-Ex.: 
-path `locale/strings/en.json`
+Ex.:
+>path `locale/strings/en.json`
 
 content:
+
 ```json
 {
   "recomendations": {
@@ -41,9 +51,10 @@ content:
 }
 ```
 
-path `locale/strings/pt-br.json`
+>path `locale/strings/pt-br.json`
 
-content: 
+content:
+
 ```json
 {
   "recomendations": {
@@ -66,11 +77,6 @@ Este objeto contém uma instância da interface [i18n](http://i18njs.com/), e po
 
 -------------------------------------------------
 
+## Contribuindo com o projeto
 
-
-
-
-
-
-
-
+Leia as instruções aqui [contribuition.md](https://github.com/githiago-f/e-coffee-frontend/blob/master/CONTRIBUITION.md)

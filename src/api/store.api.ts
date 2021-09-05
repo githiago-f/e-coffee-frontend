@@ -1,5 +1,4 @@
-import { Store } from 'entities';
-import { storeFactory } from 'factory/store-factory';
+import { Store } from 'entity/Store';
 
 type StoreApi = {
   getMostRated(): Promise<Store[]>;
@@ -15,7 +14,7 @@ type JsonStore = {
 }
 
 const orderByRating = (a: JsonStore, b: JsonStore)=> b.rating - a.rating;
-const toStore = (i: JsonStore) => storeFactory(i.name, i.rating, i.id);
+const toStore = (i: JsonStore) => new Store(i.id.toString(), i.name, i.rating);
 
 export const storeApi = () => {
   const self = {} as StoreApi;

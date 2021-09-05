@@ -1,0 +1,6 @@
+nav {
+  @apply shadow-sm p-1 bg-white;
+}
+nav .nav-container {
+  @apply flex flex-row justify-between container mx-auto sm:px-2 overflow-auto;
+}

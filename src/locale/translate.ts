@@ -24,46 +24,46 @@ class Translate {
   }
 
   currentLanguage() {
-    const cachedLanguage = this.getStoredLanguage;
-    if(cachedLanguage && cachedLanguage.trim() !== '') {
-      return cachedLanguage;
+    if(this.language && this.language.trim() !== '') {
+      return this.language;
     }
-    const pageLocale = this.i18n.currentLocale();
-    return pageLocale;
+    return this.i18n.currentLocale();
   }
 
   async selectLangAsync(language: string) {
     if(!languages.includes(language)){
-      throw new Error('Couldn\'t find this language.');
+      console.warn('Couldn\'t find this language.');
+      return;
     }
     if(!this.i18n.translations[language]) {
       const locale = await import(`./strings/${language}.json`);
       this.i18n.translations[language] = locale;
     }
     this.i18n.locale = language;
-    this.setStoredLanguage = language;
+    this.language = language;
     eventLayer.emit('languageChange', language);
   }
 
-  selectLangSync(language: string) {
+  private selectLangSync(language: string) {
     if(!languages.includes(language)) {
-      throw new Error('Couldn\'t find this language.');
+      console.warn('Couldn\'t find this language.');
+      return;
     }
     if(!this.i18n.translations[language]) {
       const locale = require(`./strings/${language}.json`);
       this.i18n.translations[language] = locale;
     }
     this.i18n.locale = language;
-    this.setStoredLanguage = language;
+    this.language = language;
     return language;
   }
 
-  set setStoredLanguage(lang: string) {
-    window.localStorage.setItem('eCoffee.language', lang);
+  private set language(language: string) {
+    window.localStorage.setItem('eCoffee.language', language);
   }
 
-  get getStoredLanguage() {
-    return window.localStorage.getItem('eCoffee.language');
+  private get language() {
+    return window.localStorage.getItem('eCoffee.language') as string;
   }
 }
 

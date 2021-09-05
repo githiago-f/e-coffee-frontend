@@ -1,33 +1,13 @@
-import { storeApi } from 'api/store.api';
-import { Store } from 'entities';
-import { useEffect, useState } from 'react';
-import { ErrorEnum } from 'utils/errors/ErrorEnum';
+import { Store } from 'entity/Store';
+import { useState } from 'react';
 
 export const useShopPageHooks = (shopId: string) => {
   const [ loading, setLoading ] = useState(true);
-  const [shop, setShop] = useState(null as Store | null | undefined);
-  const [error, setError] = useState(ErrorEnum.NONE);
-
-  useEffect(() => {
-    const api = storeApi();
-    api.getById(parseInt(shopId))
-      .then(async (store) => {
-        if(!store) {
-          setError(ErrorEnum.NO_CONTENT);
-          return;
-        }
-        setError(ErrorEnum.NONE);
-        return store;
-      })
-      .then(setShop)
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, [shopId]);
+  const [shop, setShop] = useState(null as Store | null);
 
   return {
     shop_id: parseInt(shopId),
     shop,
-    loading,
-    error
+    loading
   };
 };

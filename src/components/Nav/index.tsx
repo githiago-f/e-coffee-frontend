@@ -1,26 +1,29 @@
 import React from 'react';
-import { Icons } from 'assets';
-import Language from 'components/Language';
+import { coffeeIcon } from 'assets';
+import LanguageSelector from 'components/Language';
 import Cart from 'components/Cart';
+import { Link } from 'react-router-dom';
+import './style.css';
 
 export const Nav = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
-      <div className="container">
-        <a className="navbar-brand" href="/e-coffee-frontend">
+    <nav data-testid="navigation-bar">
+      <div className="nav-container">
+        <Link className="flex items-center" to="/" data-testid="navigation-bar-jumbotron">
           <img 
-            src={Icons['coffee-logo']}
-            className="d-inline-block align-top"
-            width="30"
-            height="30"
+            src={coffeeIcon}
+            width="32"
+            height="32"
             alt="E-coffee logo"
             loading="lazy"
           />
-          E-coffee
-        </a>
-        <div style={{display: 'inline-flex'}}>
+          <h5 className="text-2xl font-bold">
+            &nbsp;E-coffee
+          </h5>
+        </Link>
+        <div className="flex">
           <Cart.NavIcon />
-          <Language />
+          <LanguageSelector />
         </div>
       </div>
     </nav>

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Translator } from 'locale';
 import { useStoreListHooks } from './hooks';
-import { Link } from 'components/Link';
-import { ButtonGrow } from 'components/Fallbacks/ButtonGrow';
-import { Store } from 'entities';
+import { Store } from 'entity/Store';
+import { Link } from 'react-router-dom';
 
 interface Props {
   asList?: boolean;
@@ -16,29 +15,24 @@ export const StoreList = ({asList, stores, total, onLoadMore}: Props) => {
   const { renderList } = useStoreListHooks(stores);
 
   return (
-    <div className="content py-3">
-      <div className="row">
-        <div className="col-12 col-sm-12 col-md-9">
-          <h2>
-            {Translator.i18n.translate('shops.title')}
-          </h2>
-        </div>
+    <div className="content py-3" data-testid="store-list-container">
+      <div className="flex-row">
+        <h2 className="text-3xl font-semibold" data-testid="store-list-title">
+          {Translator.i18n.translate('shops.title')}
+        </h2>
       </div>
-      <div className="row">
+      <div className="store-list">
         {renderList}
       </div>
       <div className="row">
         <div className="col">
           <div hidden={asList || stores.length === total}>
-            <ButtonGrow loading={false} onClick={onLoadMore || (()=>{})}>
+            <button onClick={onLoadMore || (()=>{})}>
               {Translator.i18n.t('shops.loadMore')}
-            </ButtonGrow>
+            </button>
           </div>
           <div hidden={!asList}>
-            <Link 
-              className="btn btn-light p-3 w-100 text-uppercase font-weight-bold"
-              to="/shops"
-            >
+            <Link to="/shops">
               {Translator.i18n.t('shops.seeMore')}
             </Link>
           </div>

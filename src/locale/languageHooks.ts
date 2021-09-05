@@ -1,27 +1,23 @@
-import { useCallback, useEffect, useState, ChangeEvent } from 'react';
+import { useCallback, useEffect, useState, ChangeEvent, useRef } from 'react';
 import { Translator } from 'locale';
 import { eventLayer } from 'utils/Event';
-import { LanguageOption } from 'value-object';
-import { configApi } from 'api/config.api';
-
-const defaultVal = [{value: '', label: 'Carregando...'}] as LanguageOption[];
+import { ConfigAPI } from 'api/config.api';
+import { Language } from 'entity/Language';
 
 export const useLanguageHooks = () => {
+  const langAPI = useRef(new ConfigAPI());
   const [lang, setLang] = useState(Translator.currentLanguage());
-  const [options, setOptions] = useState(defaultVal );
+  const [options, setOptions] = useState([
+    new Language('Carregando...', '')
+  ]);
 
   useEffect(() => {
-    const identifier = eventLayer.on('languageChange', (language) => {
-      console.log(language);
-      setLang(language);
-    });
-    return () => {
-      eventLayer.off(identifier);
-    };
+    const identifier = eventLayer.on('languageChange', setLang);
+    return () => { eventLayer.off(identifier); };
   }, [lang]);
 
   useEffect(() => {
-    configApi()
+    langAPI.current
       .getLanguages()
       .then(setOptions)
       .catch(console.error);

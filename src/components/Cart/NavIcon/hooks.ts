@@ -1,25 +1,7 @@
-import { useEffect, useState } from 'react';
-import { CartService } from 'service/cart-service';
-import { eventLayer } from 'utils/Event';
+import { useState } from 'react';
 
 export const useCartNavIconHooks = () => {
-  const [itemsCount, setItemsCount] = useState(0);
-
-  const loadItems = async () => { 
-    const service = await CartService();
-    const count = await service.countItems();
-    setItemsCount(count);
-  };
-
-  useEffect(() => {
-    const change = eventLayer.on('cartItemsChange', loadItems);
-
-    loadItems();
-
-    return () => {
-      eventLayer.off(change);
-    };
-  }, [ itemsCount ]);
+  const [itemsCount] = useState(0);
 
   return {
     itemsCount

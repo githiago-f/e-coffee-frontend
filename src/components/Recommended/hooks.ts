@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from 'context/LanguageContext';
-import { Product } from 'entities';
+import { Product } from 'entity/Product';
 import { productApi } from 'api/product.api';
 
 export const useRecommendeds = () => {
@@ -8,8 +8,7 @@ export const useRecommendeds = () => {
   const {lang} = useContext(LanguageContext);
 
   useEffect(() => {
-    const api = productApi();
-    api.getRecommendations()
+    productApi().getRecommendations()
       .then(setProducts)
       .catch(console.error);
   }, []);

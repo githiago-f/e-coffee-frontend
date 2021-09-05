@@ -1,13 +1,9 @@
 import React from 'react';
-import { Button } from './styled';
 import { Translator } from 'locale';
 import { Price } from 'components/Price';
-import { LoadingContainer, Striped } from 'components/StyledBase/styles';
-import { Spinner } from 'components/Fallbacks/Spinner';
-import { Image } from 'components/Image';
 import { useBuyFormHooks } from './hooks';
-import { Product } from 'entities';
-import { Link } from 'components/Link';
+import { Product } from 'entity/Product';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: Product;
@@ -15,7 +11,7 @@ type Props = {
 }
 
 export const BuyForm = (props: Props) => {
-  const { name, thumb } = props.product;
+  const { name, image } = props.product;
 
   const {
     buttonAddToCart,
@@ -38,24 +34,19 @@ export const BuyForm = (props: Props) => {
         hidden
         id={'open_cart'}
       ></Link>
-      <LoadingContainer hidden={!props.hidden}>
-        <Spinner />
-      </LoadingContainer>
       <div hidden={props.hidden} className="form-group">
-        <Image 
+        <img 
           alt={`cover-${name}`}
           title={Translator.i18n.t('product.cover', { name: name })}
           height="400px"
-          src={thumb}
+          src={image}
         />
         <div className="pt-5">
           <h3>{name}</h3>
         </div>
         <div className="row">
           <div className="col pb-5 text-right">
-            <Striped hidden={hideOriginalPrice}>
-              {Translator.nativeToCurrency(props.product.price||0.00)}
-            </Striped>
+            <Price price={props.product.price||0.00} />
             <div className="row">
               <div className="col-4">
                 <div className="form-group">
@@ -82,7 +73,7 @@ export const BuyForm = (props: Props) => {
         </div>
         <div className="row">
           <div className="col">
-            <Button onClick={buttonAddToCart}> {currenciedPrice} </Button>
+            <button onClick={buttonAddToCart}> {currenciedPrice} </button>
           </div>
         </div>
       </div>
