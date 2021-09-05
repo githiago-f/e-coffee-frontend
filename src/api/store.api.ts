@@ -19,7 +19,7 @@ const toStore = (i: JsonStore) => new Store(i.id.toString(), i.name, i.rating);
 export const storeApi = () => {
   const self = {} as StoreApi;
 
-  const data = import('./bff-data.json');
+  const data = import('./fake-server.json');
 
   self.getMostRated = async () => (await data).stores
     .sort(orderByRating)
@@ -29,7 +29,7 @@ export const storeApi = () => {
   self.getById = async (id: number) => (await data).stores
     .filter(i => i.id === id)
     .map(toStore)
-    .shift();
+    .pop();
 
   self.getAll = async () => (await data).stores
     .map(toStore);

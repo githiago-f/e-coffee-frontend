@@ -17,12 +17,12 @@ const toProduct = (i: JsonProduct) => new Product(i.code, i.name, i.name, i.pric
 export const productApi = () => {
   const self = {} as ProductApi;
 
-  const data = import('./bff-data.json');
+  const data = import('./fake-server.json');
 
   self.getByCode = async (code) => (await data).products
     .filter(i => i.code === code)
     .map(toProduct)
-    .shift();
+    .pop();
 
   self.getRecommendations = async () => (await data).products
     .slice(0, 4)
