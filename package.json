@@ -7,7 +7,7 @@
     },
     "version": "0.2.0",
     "private": true,
-    "homepage": "https://ecoffee.dev.br",
+    "homepage": "https://githiago-f.github.io/e-coffee-frontend",
     "dependencies": {
         "axios": "^0.20.0",
         "i18n-js": "^3.8.0",
